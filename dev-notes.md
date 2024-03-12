@@ -1,45 +1,40 @@
 # Set Up
-We will be using GitHub codespace. Go to the repository of this tutorial and press ".". This will inititate a codespace which includes a compiler we can use.
+* We will be using GitHub codespace. Go to the repository of this tutorial and press ".". This will inititate a codespace which includes a compiler we can use.
+* We will also be using [goldbolt](https://godbolt.org/) to see the output of the compiler for some simple examples.
 
 # Compilers
 * Computers only understand machine language which is composed of 1's and 0's. It is possible to write your programs in this language, but it is extremely tedious. Therefore, higher level programming languages have been developed which allow the instructions you pass to your computer to be more human readable. 
 * In order to translate between the human-readable higher level languages and machine code, we use programs called compilers, interpreters or assemblers.
-* C++ is a compiled language.
+* C++ is a compiled language, which means that before your code can be executed, it first needs to be translated into something closer to the computer's "natural language". This is done with compilers.
+* Here is a simple example. Copy and paste this block of code in its entirety into [goldbolt](https://godbolt.org/), and on the right hand side you will see the output of the compiler you have selected.
+    ```cpp
+    // This is a comment, so the compiler will ignore this
+    #include <iostream> // Standard header file in system directory
 
-
-* Simple C++ code sample. *Go through it, pointing out important syntactical aspects, structure, etc*
-```cpp
-#include <iostream> // Standard header file in system directory
-
-void print(int i){
-    std::cout << "Hello World " << i << std::endl;
-}
-
-int main(int argc, char** argv) {
-    int n = 3;
-    for (int i = 0; i < n; i++) {
-        print(i);
+    int main() {
+        int n = 3;
+        int m = 4;
+        int sum = n + m;
+        return 0;
     }
-    return 0;
-}
-```
+    ```
 
 # Out first program
-* Take a look at the following code carefully.
-```cpp
-// Prints "Hello World"
-#include <iostream>
+* The following is a simple piece of code. Observe it carefully before continuing.
+    ```cpp
+    // Prints "Hello World"
+    #include <iostream>
 
-int main() {
-  std::cout << "Hello World!";
-}
-```
-* Examining line by line    
+    int main() {
+        std::cout << "Hello World!";
+    }
+    ```
+* Lets examine this code line by line.
     * `// Prints "Hello World"` 
         * This is a comment. The compiler will ignore this line when building the machine code.
         * For multiline comments, you can open with `/*` and close with `*/`
     * `# include <iostream>`
-        * `#`'s indicate directives. They read and interpreted by the pre-processor before compilation begings.
+        * `#`'s indicate directives. They are read and interpreted by the pre-processor before compilation begings.
         * This line includes the code stored in the header `iostream`, meaning it "copies and pastes" the code found there into our code, defining useful classes, functions, etc.
     * `int main()`
         * A special type of function.
@@ -47,33 +42,29 @@ int main() {
         * `main` function is called first when a program is run.
     * `std::cout << "Hello World!";`
         * `std::cout` identifies the standard character output device (e.g. computer screen).
-        *  `<<` is the insetion operator which indicates that whatever follows should be inserted into `std::cout`
+        *  `<<` is the insetion operator which indicates that whatever follows should be "inserted" into `std::cout`
 * Note that the end of each statement must end with a `;`
-* Note that the `std` in `std::cout` refers to the namespace in which `cout` is defined (which is part of the standard library). When we add `std` this way, we are specifying that the `cout` we are referring to it the one in that namespace. In general, there are two ways of using things defined in a library:
-    * Unqualified
-        ```cpp
-        // Prints "Hello World"
-        #include <iostream>
-        using namespace std; // Allows all elements inthe std namespace to be accessed without the prefix `std::`
+* Note that the `std` in `std::cout` refers to the namespace in which `cout` is defined (which is part of the standard library). When we add `std` this way, we are specifying that the `cout` we are referring to it the one in that namespace. In general, there are two ways of using things defined in a library: unqualified or qualified. In the example given, we used `cout` in a qualified way (we specified that it belond to the namespace `std`). However, we could have added `using namespace std;` at the beggining of our program, circumventing the need for this and allowing us to use `cout` in an unqualified fashion, as shown in the example below.
+    ```cpp
+    // Prints "Hello World"
+    #include <iostream>
+    using namespace std; // Allows all elements inthe std namespace to be accessed without the prefix `std::`
 
-        int main() {
-            cout << "Hello World!";
-        }
-        ```
-    * Qualified
-        * If we don't specify the namespace using `using namespace std`, we must specify it when we use statements belonging to it.
+    int main() {
+        cout << "Hello World!";
+    }
+    ```
 
 # Variables & Types
-* Line in Python, each cariable needs a name/identifier to identify it.
-* Valid C++ identifiers
-    * Sequence of one or more letters, digits, or underscore
-    * NO spaces, punctuation marks & symbols
-    * ALWAYS begins with letter or underscore (though the latter is usually reserved for special purposes)
-    * Is not one of the reserved keywords in C++
+* Line in Python, each variable needs a name/identifier to identify it. In order for an identifier to be valid it must obey the following conditions:
+    * It must be a sequence of one or more letters, digits, or underscore
+    * It must NOT include spaces, punctuation marks & symbols
+    * It must ALWAYS begin with letter or underscore (though the latter is usually reserved for special purposes)
+    * It must NOT be one of the reserved keywords in C++
 * Note that C++ identifiers are case sensitive
 * Each variable must have a data type when it is declared
-    * Although all data will be stored somewhere in RAM as a series of 1's and 0's, the amount of memory taken by one data type vs another might not be the same, and the bits will be interpreted differently depending on what they are said to represent
-* Base data types, also called arithmetic types
+    * Although all data will be stored somewhere in RAM as a series of 1's and 0's, the amount of memory taken by one data type might be different to another, and the bits will be interpreted differently depending on what they are said to represent.
+* Base data types, also called arithmetic types:
 
 | Group of types  | What they store              | Type names | Notes |
 | --------------- | ---------------------------- | ---------- | ----- |
@@ -381,6 +372,7 @@ int main() {
             ...
         }
     ```
+# Headers
 
 # Arrays
 * An array is a series of elements of the same type (and thus each occupying the same amount of memory) in a conttigous memory location. Each of them can be referenced with an index. They are similar to lists in Python.
