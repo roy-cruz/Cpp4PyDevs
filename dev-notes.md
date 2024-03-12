@@ -137,6 +137,7 @@ int main() {
     ```
 * Type deduction features should only be used if there is no other way to obtain the type, or to improve the readability of the code.
 * In string literals & chars, there are special characters that are used through the use of an escape code which starts with `\`. The following tables describes these
+
 | Escape code | Description           |
 | ----------- | --------------------- |
 | `\n`        | newline               |
@@ -188,6 +189,7 @@ int main() {
 
     }
     ```
+
 # Operators
 * Assignment operato: `=`
   * Assigns a value to a variable
@@ -233,8 +235,6 @@ int main() {
 * Operator precedence
   * (Table describing operator precedence)
 
-# Basic I/O
-
 # Statements and flow control
 * If and else
   * If a condition is fulfilled, the statement or block is executed
@@ -271,6 +271,199 @@ int main() {
             else
                 cout << "x is 0";
         ```
+* The main loop structures in C++ are
+  * `while (condition) statement;`
+    * Repeats the statement while the expression is true
+    * The first time the program encounters this loop, it first evaluates the condition and then the statemenet (if the condition is true)
+  * `do statement while (condition);`
+    * Same as the previous one, but the statement is evaluated first when the loop is first encountered, and then the condition is checked
+    * Preferable when the statement needs to be performed at least once.
+  * `for (initialization; condition; increase) statement;`
+    * At first, the initialization is executed. Then, if the condition is true, the statement is evaluated. If, after the increase updates the condition, the condition is still true, the statement is executed once again. This repeats until the condition is false.
+  * `for (declaration : range) statement;`
+    * Iterates over all element in range.
+    * declaration is some variable able to take the value of an element in this range
+* You can also control the flow of your code with `continue` and `goto`
+  * `continue`
+    * Causes the program to continue the rest of the loop in the current iteration.
+    * Placed inside another loop
+  * `goto`
+    * Jumps to a destination point identified by a label. Not very useful in modern paradigms
+        ```cpp
+            // goto loop example
+            #include <iostream>
+            using namespace std;
+
+            int main ()
+            {
+                int n = 10;
+            mylabel:
+                cout << n << ", ";
+                n--;
+                if (n>0) goto mylabel;
+                cout << "liftoff!\n";
+            }
+        ```
+* Selection statement: `switch`
+  * Used to check for a value among a number of possible constant expressions.
+  * Like `if-else`, but limited to contant expressions.
+  * Syntax
+    ```cpp
+        switch (x) {
+            case 1: // Executed if x == 1
+                cout << "x is 1";
+            case 2: // Executed if x == 2
+                cout << "x is 2";
+            default: // If the other cases fail, it defaults to this one
+                cout << "x has a value which is neither 0 or 1";
+        }
+    ```
+
+# Functions
+* They serve the same purpose as in Python. The syntax to define one in Python is `type name (type parameter1, type parameter2, ...) {statements}`
+  * `type` before name -> type of the value returned by the function. `void` if nothing is returned
+  * `type` before parametern -> type of the n'th parameter of the function
+  * Example:
+        ```cpp
+            #include <iostream>
+            using namespace std;
+
+            int subtraction (int a, int b) {
+                int r;
+                r=a-b;
+                return r;
+            }
+
+            int main () {
+                int x = 5, y = 3, z;
+                z = subtraction (7,2);
+                cout << "The first result is " << z << '\n';
+                cout << "The second result is " << subtraction (7,2) << '\n';
+                cout << "The third result is " << subtraction (x,y) << '\n';
+                z= 4 + subtraction (x,y);
+                cout << "The fourth result is " << z << '\n';
+            }
+        ```
+* Note that `main` function has a return which is optional. If excluded it will be implied and added by the compiler. A return values of 0 by `main` means the program completed succesfully.
+* There are two ways to pass arguments to a function: by reference or by value.
+  * By value:
+    * When calling the function, what is passed are the values of the arguments, which are *copied*. Any modification of the parameter variables in the function has no effect on the values of the variables passed outside it.
+    * Syntax the same seen above
+  * By reference
+    * Allows access to an extenal variable withing a function.
+    * In order to do this, what is passed is the *reference* (i.e. location in memory) of the variable.
+    * Function declares its parameters as references by adding `&` following the parameter type
+    * When passed by reference, what is passed is not a copy of the variable, but the variable itself (i.e. its location in memory).
+    * Syntax is as follows:
+        ```cpp
+            // passing parameters by reference
+            #include <iostream>
+            using namespace std;
+
+            void duplicate (int& a, int& b, int& c)
+            {
+            a*=2;
+            b*=2;
+            c*=2;
+            }
+
+            int main ()
+            {
+            int x=1, y=3, z=7;
+            duplicate (x, y, z);
+            cout << "x=" << x << ", y=" << y << ", z=" << z;
+            return 0;
+            }
+        ```
+* Functions parameters can have default values or optional parameters, just like in python. This is done by assigning a value to the parameter in the function definition of its parameters. We could call the following functions as `divide(x)` or as `divide(x, y)`
+    ```cpp
+        int divide (int a, int b = 2) {
+            ...
+        }
+    ```
+
+# Arrays
+* An array is a series of elements of the same type (and thus each occupying the same amount of memory) in a conttigous memory location. Each of them can be referenced with an index. They are similar to lists in Python.
+* Uninitialized declaration: `int arr [n]`, where `n` is the number of elements
+* Initialized declaration: `int arr [5] = { a, b, c, d, e}`
+* You can declare an array without explicitly specifying the number of elements as well: `int arr [] = {a, b, c, ...}`
+* To acces the values of an array, you use the index (starting at 0) of the element you wish to get. For example:
+    ```cpp
+        int arr [] = {14, 13, 12, 11, 10}
+        x = arr[2] // value 12 is copied and assiged to variable x
+    ```
+* Warning: It is possible to use an index higher than the number technically allowed, but this can create issues as you are accesing data beyond that which was allocated for the array.
+* You can create multi-dimensional arrays by adding more indices. For example, `int multidarr [n][m]` creates an array that has n*m elements. In order to access any of these elements, you use two indices. So, if we wanted element at position (1, 3), we would do `multidarr[1][3]`.
+* Note that multi-dimensional arrays can have an arbitrary number of dimensions, not just two.
+* Arrays cannot be passed by value. You can only pass the pointer (memory address) of it. Because the information of how long the array is is not a part of the array definition (like it is in lists in Python), you need to pass lenth of the array as well to avoid going out of range in any iteration. For example:
+    ```cpp
+        // arrays as parameters
+        #include <iostream>
+        using namespace std;
+
+        void printarray (int arg[], int length) { // length of arg is not specified
+        for (int n=0; n<length; ++n)
+            cout << arg[n] << ' ';
+        cout << '\n';
+        }
+
+        int main ()
+        {
+        int firstarray[] = {5, 10, 15};
+        int secondarray[] = {2, 4, 6, 8, 10};
+        printarray (firstarray,3);
+        printarray (secondarray,5);
+        }
+    ```
+* There exists a library called array which provides an array class which works much more like the lists and arrays in Python. (EXPAND)
+  
+# Pointers
+
+<!-- # Dynamic memory -->
+
+# Data Structures
+* A data structure is a group of data elements (members) grouped unser one name. These members can have different types.
+* Declaration syntax
+    ```cpp
+        struct type_name {
+            member_type1 member_name1;
+            member_type2 member_name2;
+            ...
+        } 
+    ```
+* With a struct definition, we can declare objects of the this type and access any of its members with a familiar `.` notation. For example:
+    ```cpp
+        struct person {
+            int age;
+            string profession;
+        };
+
+        person Andrew
+        Andrew.age = 87
+        Andrew.profession = "Climatologist"
+    ```
+* If you have a pointer to a structure instance, lets say `point_person = &Andrew`, if you want to access the member directly from this, you can use the deference operator
+    ```cpp
+        point_Andrew = &Andrew
+        point_Andrew->age = 86 // Age changed from 87 to 86
+    ```
+* In terms of operator for pointers and for structure members, this table summarizes everything
+
+| Expression | What is evaluated                            | Equivalent |
+| ---------- | -------------------------------------------- | ---------- |
+| `a.b`      | Member `b` of object `a`                     |            |
+| `a->b`     | Member `b` of object pointed to by `a`       | `(*a).b`   |
+| `*a.b`     | Value pointed to by member `b` of object `a` | `*(a.b)`   |
+
+<!-- # Other Data Types -->
+
+# Classes
+
+# Special Members
+
+# Friendship and inheritance
+
+<!-- # Polymorphism -->
 
 # Credit
 These notes were developed using the material found in https://cplusplus.com/doc/tutorial/
