@@ -1,26 +1,52 @@
 # PURSUE C++ Workshop 
-This repository holds all of the material & links which will be used in the PURSUE Scikit-C++ tutorial. The main source of information which will be used will be the lecture notes included in this repo. These were developed using an assortment of excelent learning material, namely:
+This repository holds all of the material & links which will be used in the PURSUE C++ tutorial. The main source of information which will be used will be the lecture notes included in this repo. These were developed using an assortment of excelent learning material, namely:
 
 * [HSF Basic Moden C++ Tutorial](https://hsf-training.github.io/hsf-training-cpp-webpage/) (Note: Unfinished)
 * [C++ Language Tutorial](https://cplusplus.com/doc/tutorial/)
 * [HSF C++ Course](https://github.com/hsf-training/cpluspluscourse)
 
-The notes provided here are not meant to serve as a guide and as a quick reference.
+The notes provided here are meant to serve as a guide and as a quick reference.
 
 # Set-up
-## GitHub Codespace
-From this repository, open a GitHub Codespace by either
 
-* Hitting the `.` button.
-* Clicking [here](https://github.dev/roy-cruz/PURSUE-scikithep).
+## CMSLPC Cluster
 
-Once the page loads, click on the blue "GitHub" button on the bottom left, and select "Continue Working in GitHub Codespaces" in the drop down menu that appears. Once your Codespace finishes loading, open the terminal (upper right corner). To make sure you have access to the copiler, just use the command
+Add the following to your `~/.ssh/config` file
 
-```bash
-g++ -h
+```cpp
+Host cmslpc-*.fnal.gov
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
 ```
 
-If the help documentation comes up, you are ready to go!
+and log into the LPC cluster. Once there, run the following commands
+
+```cpp
+mkdir nobackup/PURSUE-CPP
+cd nobackup/PURSUE-CPP
+cmsrel CMSSW_12_4_19
+cd CMSSW_12_4_19/src/
+cmsenv
+git clone git@github.com:roy-cruz/PURSUE-cpp.git
+cd PURSUE-cpp
+```
+
+To test that everything is working, compile and run `helloworld.cpp`.
+
+```cpp
+cd examples
+g++ helloworld.cpp -o helloworld
+./helloworld
+```
+
+If you get the following output, you are ready to go!
+
+```cpp
+Hello World 0
+Hello World 1
+Hello World 2
+```
+
+## Local
 
 ## C++ Shell
-If Codespace is not working for you, you can also use the [C++ shell](https://cpp.sh/) website. Note, however, that this option is limited in its functionality, as you will not be able to use header files (more on that in the tutorial).
