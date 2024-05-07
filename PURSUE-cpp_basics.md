@@ -9,7 +9,7 @@
 
 ## Section 1.2: High-level languages
 
-* Protability issues with machine & assembly are solved* with high-level languages such as C++, Python, Javascript, etc. These are designed to be very human readable and to be used in any kind of computer, regardless of the CPU's architecture.
+* Protability issues with machine & assembly are solved* with high-level languages such as C++, Python, Javascript, etc. These are designed to be very human readable and to be used in any kind of computer, regardless of the CPU's architecture.v
 * There are two types of high-level programming languages
   * Interpreted
     * E.g.: Python
@@ -40,6 +40,35 @@
   * In Python, you can declare a variable like `a = 5`, and, through context, the interpreter will understand that `a` is supposed to be of type `int`. However, in C++ you need to explicitly tell the compiler what type of data a variable is supposed to represent. For example, to do the same assignment, we would need to do `int a = 5`.
   * Python and C++ are syntactically distinct. For instance, in C++, you need to finish every line of code with a `;`. We will see other differences later.
   * In C++, you have more direct access to memory, while in Python this is mostly taken care of behind the scenes.
+  * In Python, you define a block a code through indentation. For instance, you do indicate to the interpreter that a set of statements should be inside of an `if`, we would use indentation.
+    ```python
+    if x = 2:
+      x = x / 2
+      print("The number is: ", x)
+    ```
+    However, C++ does not enforce any sort of formatting restrictions and in a *whitespace-independent language*. This means that this (ignore what the code actually does for now)
+    ```cpp
+    if (x==2) {
+
+      x = x / 2;
+
+      std::cout << "The number is: " << x;
+
+    }
+    ```
+
+    is completely equivalent to
+
+    ```cpp
+    if(x==2){x=x/2;std::cout<<"The number is: "<<x;}
+    ```
+    
+    However, its evidently bad practice to write your code like in the latter example! In fact, there are a bunch of conventions and styles defined that you should follow to make your code accesible. Some commonly referenced style guides are:
+      * [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+      * [Google](https://google.github.io/styleguide/cppguide.html)
+      * [LLVM](https://llvm.org/docs/CodingStandards.html)
+      * [GCC/GNU](https://gcc.gnu.org/codingconventions.html)
+
 
 ## Section 1.4: Compiling C++ Source Code
 
@@ -79,78 +108,70 @@
   * `std::cout << "Hello world";`: This is a statement and it is the C++ equivalent of `print()`. `std::cout` and the `<<` operator takes the string on the left and displays it on the console. Note that in C++, **all statements must end in a `;`**. This indicates to the compiler that that is the end of that particular statmenet.
   * `return 0;`: This is the same as the `return` in a python function and it indicates what the function will return once it is executed. In C++, if `main` returns 0, this is interpreted to mean that the program ran with no problems. Returning anything else is usually used to indicate that there was some issue with the execution of the program.
 
-## Section 2.2: Variables
+## Section 2.2: Variables & Constants
 
 * In Python, to declare a variable of type `int`, you can just write `x = 5` and the interpreter will take care of deciphering what type `x` should be. However, in C++, you need to explicitly say what type the variable will be at the time of declaration. For instance, to define the same variable in C++, we would need to write `int x = 5;`.
-* You can also declare a variable without initializing it. For instance, you could just write `int x`. But what value will `x` have? 
-
-
----
-
-# Variables & Types
-
-* LIKE Python, each variable needs a name to identify it. In order for an identifier to be valid it must obey the following conditions:
+  * Although all data will be stored somewhere in RAM as a series of 1's and 0's, the amount of memory taken by one data type might be different to another, and the bits will be interpreted differently depending on what they are said to represent.
+* When you declare a variable of type `int`, for example, the computer allocates/reserves 4 bytes of memory for it. Note that different data types can occupy different amount of memory, so the amount allocated can vary.
+* You can also declare a variable without initializing it. For instance, you could just write `int x;`. But what value will `x` have? If you run [noinit.cpp](/examples/noinit.cpp), depending on your setup, its likely that the result is 0. In practice, however, the default value is whatever happened to be in the space of memory allocated for the variable, which is generally junk! This can introduce unexpected behavior and bugs.
+* ***Include discussion about different types of initializations?***
+* Just like in Python, where there are names such as `print` or `return` you should not give to your variables as they are special *keywords* used by the language, C++ has its own set of keywords. You can read about them [here](https://en.cppreference.com/w/cpp/keyword).
+* In order for an identifier to be valid it must obey the following conditions:
   * It must be a sequence of one or more letters, digits, or underscore
   * It must NOT include spaces, punctuation marks & symbols
   * It must ALWAYS begin with letter or underscore (though the latter is usually reserved for special purposes)
   * It must NOT be one of the reserved keywords in C++
-* Note that C++ identifiers are case sensitive
-* UNLIKE Puython, each variable must have a data type when it is declared
-  * Although all data will be stored somewhere in RAM as a series of 1's and 0's, the amount of memory taken by one data type might be different to another, and the bits will be interpreted differently depending on what they are said to represent.
-* Here are the base data types, also called arithmetic types:
+* Note that C++ identifiers are case sensitive.
+* Now that we know a bit about variables, we can go ahead and use them. Run example [varsexample.cpp](/examples/varsexample.cpp)
+  ```cpp
+  #include <iostream>
+  
+  int main() {
+    int First_Number = 2;
+    int Second_Number = 4;
+    int Third_Number = First_Number + Second_Number;
 
-| Group of types         | What they store               | Type names | Notes |
-| ---------------------- | ----------------------------- | ---------- | ----- |
-| Character types        | Represents a single character | char       |       |
-|                        |                               | char16_t   |       |
-|                        |                               | char32_t   |       |
-|                        |                               | wchar_t    |       |
-| Integer types (signed) |                               |            |       |
-
-* Simple use example of vairables
+    std::cout << "First Number + Second Number" << Third_Number;
+  }
+  ```
+  * `First_Number`, `Second_Number` and `Third_Number` are variables of type `int`. Notice that, unlike in Python, the type *must* be specified.
+  * When we go to define `Third_Number`, the right hand side of the expression is evaluated first, and its result is then assigned to `Third_Number`.
+* You can also define contants. For example
 
   ```cpp
-  // operating with variables
-
   #include <iostream>
   using namespace std;
 
+  const float pi = 3.14; // global contant
+
   int main ()
   {
-  // declaring variables:
-  int result; // uninitialized variable
+    float r = 5.0;               // radius
+    float circle;
 
-  // process:
-  int a = 5; // initialized variable
-  int b = 2; // initialized variable
-  a = a + 1;
-  result = a - b;
-
-  // print out the result:
-  cout << result;
-
-  // terminate the program:
-  return 0;
+    circle = 2 * pi_according_to_engineers * r;
+    cout << circle << "\n";
   }
   ```
-* There are strings in C++ just like in Python, but we must first include `string`, which is part of the standard library. For example
+* Another way of naming constant values is with the use of preprocessor definitions. The syntax is `#define identifier replacement`. When the preprocessor finds this, it will know to blindy (i.e. not checking type validity) replace any occurance of `identifier` in your code with `replacement`.
 
   ```cpp
-  // my first string
   #include <iostream>
-  #include <string>
   using namespace std;
+
+  #define PI 3.14
 
   int main ()
   {
-  string mystring;
-  mystring = "This is a string";
-  cout << mystring;
-  return 0;
+    float r = 5.0;               // radius
+    float circle;
+
+    circle = 2 * PI * r;
+    cout << circle;
+    cout << NEWLINE;
   }
   ```
 
-  * `string` class is a compound type. Compound types can be used in the same way as fundamental types (they use the same syntax to declare and initialize)
 * Despite needing to specify the type at the time of declaration, it is possible to have the compiler deduce the type. For example:
 
   ```cpp
@@ -164,66 +185,78 @@
   decltype(var) var2; // Same type as var
   ```
 * Type deduction features should only be used if there is no other way to obtain the type, or to improve the readability of the code.
+
+## Section 2.3: Types
+* C++ has some familiar types which we have already seen, namely `int` and `float`. However, it also has a whole assortment of types which you may have not heard about. In the following table, we summarize these fundamental types for you:
+
+|    Types    |    Category    |             Meaning             | Example | Size  |
+| :---------: | :------------: | :-----------------------------: | :-----: | :---: |
+|    float    | floating point | a number with a fractional part | 3.14159 |       |
+|   double    |                |                                 |         |       |
+| long double |                |                                 |         |       |
+|    bool     |    boolean     |          True or False          |  True   |       |
+
+
+| Group of types         | What they store               | Type names | Notes |
+| ---------------------- | ----------------------------- | ---------- | ----- |
+| Character types        | Represents a single character | char       |       |
+|                        |                               | char16_t   |       |
+|                        |                               | char32_t   |       |
+|                        |                               | wchar_t    |       |
+| Integer types (signed) |                               |            |       |
+
+
+
+## Section 2.3: `iostream`
+
+* Before we continue, lets take some time to understand `iostream` a little better, as it will serve as a useful library to build our understanding upon as we move forward.
+* `iostream` (or the input/output library) is part of the C++ standard library and it offers tools that help with basic input (e.g. from your keyboard) and output (e.g. to your terminal) of data.
+* This library offers classes such as:
+  * `std::cout`: Allows us to print data into the terminal as text.
+  * `std::cin`: Queries the user to input data from their keyboard into the terminal.
+* We already saw an example of how to use `std::cout`, so lets see how `std::cin` is used. For the former, we saw that we needed to use the *insertion operator* `<<`. For the latter, we use the *extraction operator* `>>`. To run the following example, compile and run [nameio.cpp](/examples/nameio.cpp)
+```cpp
+#include <iostream>
+
+int main() {
+    // Ask user for their age
+    std::cout << "How old are you?\n";
+    
+    // Get user's age
+    int age = 0;
+    std::cin >> age;
+
+    // Print a response depending on the input.
+    std::cout << "I see! So you're " << age << " years old!\n";
+}
+```
+
 * In string literals & chars, there are special characters that are used through the use of an escape code which starts with `\`. The following tables describes these
 
 | Escape code | Description           |
 | ----------- | --------------------- |
-| `\n`      | newline               |
-| `\r`      | carriage return       |
-| `\t`      | tab                   |
-| `\v`      | vertical tab          |
-| `\b`      | backspace             |
-| `\f`      | form feed (page feed) |
-| `\a`      | alert (beep)          |
-| `\'`      | single quote          |
-| `\"`      | double quote          |
-| `\?`      | question mark         |
-| `\\`      | backslash             |
+| `\n`        | newline               |
+| `\r`        | carriage return       |
+| `\t`        | tab                   |
+| `\v`        | vertical tab          |
+| `\b`        | backspace             |
+| `\f`        | form feed (page feed) |
+| `\a`        | alert (beep)          |
+| `\'`        | single quote          |
+| `\"`        | double quote          |
+| `\?`        | question mark         |
+| `\\`        | backslash             |
 
-* You can also define contants. For example
+## Section 2.4: Operators
 
-  ```cpp
-  #include <iostream>
-  using namespace std;
+* C++ shares many operators with Python. For instance, in C++ we have addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), assignment (`=`), as well as comparion operators such as `==`, `<=`, `>=`, `!=`.
+* We have seen two operators which are *not* found in Python, namely the insertion `<<` and extraction `>>` operators.
+* There are also operators in C++ which are keywords. For instance, we have
+  * `new`: Dynamically allocated memory for an object or an array of object of a given type and returns a pointer to the first byte of the allocated memory.
+  * `delete`: Deallocates memory that was previous allocated by `new`. Also calls the destructor of the object before freeing the memory.
+  * `throw`: Used to signal that an exceptional condition (e.g. an error) has occurred in the program.
 
-  const double pi = 3.14159; // global contant
-  const char newline = '\n'; // global constant
-
-  int main ()
-  {
-  double r = 5.0;               // radius
-  double circle;
-
-  circle = 2 * pi * r;
-  cout << circle;
-  cout << newline;
-  }
-  ```
-* Another way of naming constant values is with the use of preprocessor definitions. The syntax is `#define identifier replacement`. When the preprocessor finds this, it will know to blindy (i.e. not checking type validity) replace any occurance of `identifier` in your code with `replacement`.
-
-  ```cpp
-  #include <iostream>
-  using namespace std;
-
-  #define PI 3.14159
-  #define NEWLINE '\n'
-
-  int main ()
-  {
-  double r = 5.0;               // radius
-  double circle;
-
-  circle = 2 * PI * r;
-  cout << circle;
-  cout << NEWLINE;
-
-  }
-  ```
-
-# Operators
-
-* Assignment operato: `=`
-
+* Assignment operator: `=`
   * Assigns a value to a variable
   * Left to right (always)
 * Arithmetic operators: `+, -, *, /, %`
@@ -278,6 +311,132 @@
 * Operator precedence
 
   * (Table describing operator precedence)
+
+## Section 2.5: Namespaces
+
+## Section 2.6: Functions
+
+* Just like in Python, a function in C++ is a reusable sequence of statements (ideally) designed to do a single job.
+* They provide a way for us to split into modular, optimized chunks as well as a way to avoid writting the same code over and over.
+* The syntax of functions in C++ is as follow:
+  ```
+  <return_type> <identifier>(arg1type arg1, arg2type arg2, ...) {
+    <statements>
+    .
+    .
+    .
+    return <value_to_return>
+  }
+  ```
+  * *Function header explanation*
+  * There is more to say about how arguments are passed to a function in C++, but we will discuss that later.
+* In C++, functions *must* be either be declared before they are used or must at least have their header located before the function itself is used. For instance, we could have
+  ```cpp
+  int foo() {
+    ...
+  }
+
+  int main() {
+    ...
+    foo();
+    ...
+    return 0;
+  }
+  ```
+  but the following would still work
+  ```cpp
+  int foo();
+
+  int main() {
+    ...
+    foo();
+    ...
+    return 0;
+  }
+
+  int foo() {
+    ...
+  }
+  ```
+  Although the latter way of doing things might seem redudant, it can actually be very useful when it comes to code organization.
+* Just like in Python, functions in C++ may or may not return something. In addition, in order to return something, we would use the same keyword, namely `return`. Its important to note, however, that unlike Python, the return type is something that is fixed at the function definition. Recall that when we write the header of a function, we have to specify the return type. For instance, `int foo()` means that `foo` will return a value of type `int`. In fact, if you have two functions with the same name, but with different return types, C++ will consider them separate functions. This is called *function overloading*.
+* Function overloading is possible because the compiler will differentiate between functions of the same name by their return type and the parameter types. For instance, the compiler will consider `int foo(int par1, char par2)` distinct from `float foo(float par1, chat par2)`.
+* In the case where a function does not return any value, you would not need to include a `return` statement and, as the return type you would put `void` in order to indicate the lack of any return values to the compiler. Alternatively, you could put an empty `return` statement, though this would be redundant.
+* A function that returns a value can only return a single value back per call.
+* To demonstrate the basics of how functions work in C++, lets write a `print()` function to have our code look a bit more like Python's. Take a look at [printfunct.cpp](/exampples/printfunct.cpp) (reproduced here). Compile and run it. This example contains many fundamental elements of functions in C++, as well as some new elements we have not seen before, so we will go step by step.
+
+  ```cpp
+  #include <iostream>
+  #include <string>
+
+  void print(std::string txt);
+  int intprod(int int1, int int2);
+
+  int main() {
+      int int1 = 0;
+      int int2 = 0;
+      
+      print("Input two numbers.\nNumber 1: ");
+      std::cin >> int1;
+
+      print("Number 2: ");
+      std::cin >> int2;
+
+      int prod12 = intprod(int1, int2);
+
+      print("\nProduct of these two numbers: ");
+      print(std::to_string(prod12));
+      print("\n");
+  }
+
+  void print(std::string txt) {
+      std::cout << txt;
+  }
+
+  int intprod(int int1, int int2) {
+      return int1 * int2;
+  }
+  ```
+  * In addition to including `iostream`, we are also including `string` here. While not strictly neccesary, as we could have used a list of `char`s for this, using `string` allows us to *Exmplanation about strings vs chars*
+
+
+
+<!-- ## Section 2.4: Literals
+
+* Whereas variables can have their values changed throughout the execution of some code, literals are fixed values that are inserted straight into the source code. For instance, in the following example the first `10` is a literal, whereas, `x` is a variable which happens to have the value `10`
+```cpp
+#include <iostream>
+
+int main() {
+  std::cout << 10 << "\n";
+
+  int x = 10;
+  std::cout << x << "\n";
+
+  return 0;
+}
+```
+* The main way to differentiate one from the other is that, for variables, the value needs to be fetched from memory first, but for the literal the value is hard-coded into the source code. -->
+
+
+## Exercises:
+1. Create a program that asks the user to enter an integers, waits for them to input an integer, then tells them waht 2 times that number is.
+1. Modify the program from the previous exercise so that it also outputs what 3 times the given number is.
+<!-- 1. Advanced: Define a function which computes the product of two numbers and use it to implement the code of the previous exercise. -->
+
+# Chapter 3: Control Flow
+
+# Chapter 4: 
+
+## Section 4.1: Pointers & Dynamic Memory
+
+## Section 4.1: Functions (Cont.)
+
+* *Local scope*
+* *Pass by value and by reference*
+
+
+---
 
 # Statements and flow control
 
@@ -356,32 +515,6 @@
 
 # Functions
 
-* They serve the same purpose as in Python. The syntax to define one in Python is `type name (type parameter1, type parameter2, ...) {statements}`
-
-  * `type` before name -> type of the value returned by the function. `void` if nothing is returned
-  * `type` before parameters -> type of the n'th parameter of the function
-  * Example:
-    ```cpp
-    #include `<iostream>`
-    using namespace std;
-
-    int subtraction (int a, int b) {
-    int r;
-    r=a-b;
-    return r;
-    }
-
-    int main () {
-    int x = 5, y = 3, z;
-    z = subtraction (7,2);
-    cout << "The first result is " << z << '\n';
-    cout << "The second result is " << subtraction (7,2) << '\n';
-    cout << "The third result is " << subtraction (x,y) << '\n';
-    z= 4 + subtraction (x,y);
-    cout << "The fourth result is " << z << '\n';
-    }
-    ```
-* Note that `main` function has a return which is optional. If excluded it will be implied and added by the compiler. A return values of 0 by `main` means the program completed succesfully.
 * There are two ways to pass arguments to a function: by reference or by value.
 
   * By value:
@@ -498,11 +631,11 @@
   ```
 * In terms of operator for pointers and for structure members, this table summarizes everything
 
-| Expression | What is evaluated                                | Equivalent |
-| ---------- | ------------------------------------------------ | ---------- |
-| `a.b`    | Member `b` of object `a`                     |            |
-| `a->b`   | Member `b` of object pointed to by `a`       | `(*a).b` |
-| `*a.b`   | Value pointed to by member `b` of object `a` | `*(a.b)` |
+| Expression | What is evaluated                            | Equivalent |
+| ---------- | -------------------------------------------- | ---------- |
+| `a.b`      | Member `b` of object `a`                     |            |
+| `a->b`     | Member `b` of object pointed to by `a`       | `(*a).b`   |
+| `*a.b`     | Value pointed to by member `b` of object `a` | `*(a.b)`   |
 
 <!-- # Other Data Types -->
 
