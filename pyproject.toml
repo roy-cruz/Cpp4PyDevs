@@ -7,6 +7,7 @@ authors = ["roy <roy.cruz@upr.edu>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 jupyter-book = "^1.0.0"
+jupytext = "^1.16.2"
 
 [tool.poetry.dev-dependencies]
 
