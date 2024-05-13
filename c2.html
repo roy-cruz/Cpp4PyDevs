@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'c2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variables &amp; Memory" href="c3.html" />
+    <link rel="next" title="Chapter 3: Statements &amp; Flow Control" href="c3.html" />
     <link rel="prev" title="Chapter 1: Compiled vs. Interpreted Programming Languages" href="c1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,8 +180,9 @@
 <li class="toctree-l1"><a class="reference internal" href="c0.html">Set-up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c1.html">Chapter 1: Compiled vs. Interpreted Programming Languages</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2: From Python to C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c3.html">Variables &amp; Memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c4.html"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Statements &amp; Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: Classes</a></li>
 </ul>
 
     </div>
@@ -379,9 +380,16 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-things-first">First Things First…</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else"><code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for"><code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while"><code class="docutils literal notranslate"><span class="pre">do-while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-throw-catch"><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 </ul>
             </nav>
@@ -399,7 +407,7 @@ document.write(`
 <p>In this chapter, we will be introducing the fundamental things you will need to get strated coding in C++ by seeing how basic elements from Python such as variables, flow control and functions look like in C++. At the end, we will look at a some more complex examples comparing C++ and Python and you will work on an exercise applying all of this in order to write your first program in C++. Keep in mind that the difference between Python and C++ are not just syntax. While the same program written in C++ and in Python might technically work the same, they will operate differently under the hood.</p>
 <section id="first-things-first">
 <h2>First Things First…<a class="headerlink" href="#first-things-first" title="Link to this heading">#</a></h2>
-<p>Before we can jump into programming in C++, we need to do some neccesary housekeeping. Consider the following, very simple code in Python.</p>
+<p>Before we can jump into programming in C++, we need to do some neccesary housekeeping by explaning some basic considerations neccesary to get anywhere with C++. Consider the following, very simple code in Python.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="linenos">2</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="linenos">3</span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -486,11 +494,6 @@ document.write(`
 <p>The following table shows some of the data types found in C++ which you might find most familiar having some knowledge of Python. Note that there are more data types than these which we will see later, but these will at least get you started.</p>
 <table class="table" id="id1">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Some Fundamental Types in C++</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 27.3%" />
-<col style="width: 18.2%" />
-<col style="width: 54.5%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Keyword</p></th>
@@ -528,15 +531,70 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<p>In C++ we also have arrays.
+TODO</p>
 </section>
 <section id="statements-control-flow">
 <h2>Statements &amp; Control Flow<a class="headerlink" href="#statements-control-flow" title="Link to this heading">#</a></h2>
+<p>In Python, we have the well known flow control statements <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements, <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, etc. All of these are used to allow us to repeat operations in our code or to allow it to branch depending on some pre-defined condition. C++ also has its own control flows, many of which will be familiar to you. To get started, in the table below, we present a summary of the main flow control statements in C++. In the following sub-sections, we will cover the most basic and useful of these by starting with a Python example at first, and then seeing the equivalent in C++.</p>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Flow Control Statements in C++</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Implemented in C++ by</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Conditional statements</p></td>
+<td><p>Set of statements will only be executed if a condition is met.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">switch</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumps</p></td>
+<td><p>Start executing statements at another location</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">goto</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Function calls</p></td>
+<td><p>Jumps to another location and back</p></td>
+<td><p>functional calls, <code class="docutils literal notranslate"><span class="pre">return</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Loops</p></td>
+<td><p>Repeatedly execute a set of statements until some condition is met.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">do-while</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">ranged-for</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Halts</p></td>
+<td><p>Terminate the program</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::exit()</span></code>, <code class="docutils literal notranslate"><span class="pre">std::abort()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Exceptions</p></td>
+<td><p>Error handling</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="if-else">
+<h3><code class="docutils literal notranslate"><span class="pre">if-else</span></code><a class="headerlink" href="#if-else" title="Link to this heading">#</a></h3>
+<p>In Python, we might have something like the following</p>
+</section>
+<section id="for">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#for" title="Link to this heading">#</a></h3>
+</section>
+<section id="while">
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#while" title="Link to this heading">#</a></h3>
+</section>
+<section id="do-while">
+<h3><code class="docutils literal notranslate"><span class="pre">do-while</span></code><a class="headerlink" href="#do-while" title="Link to this heading">#</a></h3>
+</section>
+<section id="break-continue">
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-continue" title="Link to this heading">#</a></h3>
+</section>
+<section id="try-throw-catch">
+<h3><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code><a class="headerlink" href="#try-throw-catch" title="Link to this heading">#</a></h3>
+</section>
 </section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
-</section>
-<section id="arrays">
-<h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
+<p>Functions in C++ work very similary to how they work in Python. However, there are some additional complications regarding memory and how things are passed to them which will be discussed later on. For now, we can familiarize ourselves with functions by seeing how they are structured in both Python and C++. In Python, we may have a function like the following.</p>
 </section>
 <section id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
@@ -629,7 +687,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Variables &amp; Memory</p>
+        <p class="prev-next-title">Chapter 3: Statements &amp; Flow Control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -651,9 +709,16 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-things-first">First Things First…</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else"><code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for"><code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while"><code class="docutils literal notranslate"><span class="pre">do-while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-throw-catch"><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 </ul>
   </nav></div>
