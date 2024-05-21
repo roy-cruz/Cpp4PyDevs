@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -538,128 +538,28 @@ document.write(`
 <span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="kt">void</span><span class="w"> </span><span class="nf">passByValue</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr_val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="o">*</span><span class="n">ptr_val</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr_val</span><span class="p">);</span><span class="w"> </span><span class="c1">// Dereference ptr_val to modify the value it points to</span>
-<span class="linenos"> 6</span><span class="p">}</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 9</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pointer to a</span>
-<span class="linenos">11</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Address of a in hexadecimal</span>
-<span class="linenos">13</span><span class="w">    </span><span class="n">passByValue</span><span class="p">(</span><span class="n">ptr_a</span><span class="p">);</span>
-<span class="linenos">14</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 40</span>
-<span class="linenos">15</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Same address as before</span>
-<span class="linenos">16</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">17</span><span class="p">}</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer passed to func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="o">*</span><span class="n">ptr_val</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr_val</span><span class="p">);</span><span class="w"> </span><span class="c1">// Dereference ptr_val to modify the value it points to</span>
+<span class="linenos"> 7</span><span class="p">}</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pointer to a</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Address of a in hexadecimal</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">passByValue</span><span class="p">(</span><span class="n">ptr_a</span><span class="p">);</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value after func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 40</span>
+<span class="linenos">16</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer after func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Same address as before</span>
+<span class="linenos">17</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">18</span><span class="p">}</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value of var: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Address of var: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value pointed to by ptr: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<!-- 
-#### 
-Dynamic memory allocation allows you to allocate memory during runtime using the `new` operator and deallocate it using the `delete` operator.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    int* dynamicInt = new int(5);  // Dynamically allocate memory for an integer
-    cout << "Value of dynamicInt: " << *dynamicInt << endl;
-    delete dynamicInt;  // Free the allocated memory
-
-    int* dynamicArray = new int[5];  // Dynamically allocate memory for an array
-    for (int i = 0; i < 5; ++i) {
-        dynamicArray[i] = i * 10;
-        cout << "dynamicArray[" << i << "] = " << dynamicArray[i] << endl;
-    }
-    delete[] dynamicArray;  // Free the allocated memory
-
-    return 0;
-}
-```
-
-### Passing by Value vs. Passing by Reference
-
-#### Passing by Value
-When passing by value, a copy of the argument is passed to the function. Modifications to the parameter inside the function do not affect the original argument.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-void passByValue(int val) {
-    val = 20;  // This modification won't affect the original argument
-}
-
-int main() {
-    int a = 10;
-    passByValue(a);
-    cout << "After passByValue, a = " << a << endl;  // Output: 10
-    return 0;
-}
-```
-
-#### Passing by Reference
-When passing by reference, the function receives a reference to the original argument, allowing it to modify the argument's value.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-void passByReference(int& ref) {
-    ref = 20;  // This modification will affect the original argument
-}
-
-int main() {
-    int b = 10;
-    passByReference(b);
-    cout << "After passByReference, b = " << b << endl;  // Output: 20
-    return 0;
-}
-``` -->
-<!-- 
-#### Passing by Pointer
-Pointers can also be used to pass arguments by reference, providing similar functionality with explicit memory address handling.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-void passByPointer(int* ptr) {
-    *ptr = 20;  // This modification will affect the original argument
-}
-
-int main() {
-    int c = 10;
-    passByPointer(&c);
-    cout << "After passByPointer, c = " << c << endl;  // Output: 20
-    return 0;
-}
-```
-
-### Summary
-
-- **Function Basics**: Introduced the concept of function declaration and definition in C++.
-- **Default Arguments and Overloading**: Discussed how functions can have default arguments and be overloaded.
-- **Memory Management**: Introduced pointers and dynamic memory allocation, emphasizing the importance of freeing allocated memory.
-- **Parameter Passing**: Explained the differences between passing by value, passing by reference, and passing by pointer.
-
-By understanding these concepts, you can write more flexible and efficient C++ programs while managing memory effectively and avoiding common pitfalls. -->
+<p>Through this example, we can see that the pointer printer inside of the function is the same than the one outside. However, it is worth pausing and taking a look at two new things seen here which have to do with memory and pointers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">ptr_a</span></code>: This declares a <em>pointer to</em> an <code class="docutils literal notranslate"><span class="pre">int</span></code>. It is different than <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span></code> because this just declares the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> with type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;a</span></code>: Here we use the “pointer to” operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> which gives us the address in memory of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> int his case.
+*<code class="docutils literal notranslate"><span class="pre">*ptr_val</span></code>: Here we use the “dereference” operator which acts on a pointer (<code class="docutils literal notranslate"><span class="pre">ptr_val</span></code>) and returns the value pointed to by the pointer.</p></li>
+</ul>
 </section>
 </section>
 </section>

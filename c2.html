@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -381,7 +381,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-things-first">First Things First…</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-types">Basic Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-vectors">Arrays &amp; Vectors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else"><code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for"><code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
@@ -470,6 +474,8 @@ document.write(`
 </section>
 <section id="variables-and-types">
 <h2>Variables and Types<a class="headerlink" href="#variables-and-types" title="Link to this heading">#</a></h2>
+<section id="basic-types">
+<h3>Basic Types<a class="headerlink" href="#basic-types" title="Link to this heading">#</a></h3>
 <p>In Python, if you want to define a variable of type <code class="docutils literal notranslate"><span class="pre">int</span></code> you simply need to write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">2</span></code>, and the interpreter will infer the type. This is because Python is a <strong>dynamically typed</strong> language, which means that type checking and type assignment of variables happens at runtime and the type of a variable will be based on the value assigned to it. This also means that we can declare a variable to have a value of a particular type, but then assign it a value of a different type. For instance, the following is valid in Python.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;This is a string!&quot;</span>
@@ -532,8 +538,56 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>In C++ we also have arrays.
-TODO</p>
+<p>In C++ we also have arrays. An array is a series of elements of the same type (thus occupying the same amount of memory) in a contiguous memory location. Each of them can be refereced with an index.</p>
+</section>
+<section id="arrays-vectors">
+<h3>Arrays &amp; Vectors<a class="headerlink" href="#arrays-vectors" title="Link to this heading">#</a></h3>
+<p>An array, the C++ equivalent of a tuple in Python, is a series of elements of the same type (and thus each occupying the same amount of memory) in a contiguous memory location. Just like with tuples in Python, each element can be refereced with an index. So, for example, while in Python we might have something like the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tuple_of_nums</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+<span class="n">num1</span> <span class="o">=</span> <span class="n">list_of_nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The second number in the tuple is: &quot;</span><span class="p">,</span> <span class="n">num1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In C++, we would have something like this instead</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos">2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">5</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr_of_nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">};</span>
+<span class="linenos">6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr_of_nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// Value 15 is copied and assigned to x</span>
+<span class="linenos">7</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The second number in the array is: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">8</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, we are defining an array <code class="docutils literal notranslate"><span class="pre">arr_of_num</span></code> which we tell the computer will have elements of size <code class="docutils literal notranslate"><span class="pre">int</span></code>. In additional, we are initializing the array with some integers. Note that when we assign <code class="docutils literal notranslate"><span class="pre">arr_of_nums[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code>, what happens is that the value is <em>copied</em> and assigned to x.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike in Python, in C++ it is possible to use an out of bounds index when fetching an element from an array. This is because when you do <code class="docutils literal notranslate"><span class="pre">int_arr[n]</span></code> all your computer is doing is finding the space space in memory <code class="docutils literal notranslate"><span class="pre">sizeof(int)</span> <span class="pre">*</span> <span class="pre">n</span></code> away from <code class="docutils literal notranslate"><span class="pre">int_arr[0]</span></code>, which can go beyond the actual space alloted for the array. To see this in action, run the following code. Your compile might complain, but if it does indeed compile, you see that what is printed to the console is junk because we are accessing some random piece of memory. Don’t do this in practice! You could break something!</p>
+</div>
+<p>One limitation with arrays is that the size of the array is unchangeable. However, C++ offers an alternative called vectors which are dynamic arrays that can change in size, making them the Python equivalent of lists. So, for example, in Python we might have something like the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lst_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="n">lst_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># Adding an element to the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added element&quot;</span><span class="p">,</span> <span class="n">lst_nums</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Whereas, in C++, using vectors we would have:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos">3</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">6</span><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">};</span>
+<span class="linenos">7</span><span class="w">    </span><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">8</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Added element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">9</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">push_back</span></code> is the C++ equivalent of <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the above example does not compile for you, it might due to the way we are initializing the vector, which is only compatible with C++11 or later. To fix this, add <code class="docutils literal notranslate"><span class="pre">-std=c+11</span></code> when you go to compile, or use the included extra example, <code class="docutils literal notranslate"><span class="pre">examples_cpp/c2_vectspushbackold.cpp</span></code> which does not use this way of initializing.</p>
+</div>
+</section>
 </section>
 <section id="statements-control-flow">
 <h2>Statements &amp; Control Flow<a class="headerlink" href="#statements-control-flow" title="Link to this heading">#</a></h2>
@@ -704,18 +758,6 @@ TODO</p>
 <span class="linenos">15</span><span class="p">}</span>
 </pre></div>
 </div>
-<!-- ### `try`, `throw`, `catch`
-
-In Python, to handle errors you would usually use `try`, `except` `raise`. For instance, suppose we want to validate the user's age to make sure that it is above 21 and, if the age is below this number, it throws an error. This could be implemented in Python as follows:
-
-```{literalinclude} ../examples_py/c2_except.py
-:language: python
-:lineno-match:
-```
-
-What happens here is the following:
-    * Python attempts running the `try` block. Inside this block, if the user inputs a number bellow 21, Python *raises* a `ValueError`, letting the user know that the age must be above 21.
-    * If a `ValueError` is raised, Python runs the `except` block. Here, the program lets the user know the amounts of  -->
 </section>
 </section>
 <section id="functions">
@@ -862,7 +904,11 @@ What happens here is the following:
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-things-first">First Things First…</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-types">Variables and Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-types">Basic Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-vectors">Arrays &amp; Vectors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statements-control-flow">Statements &amp; Control Flow</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else"><code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for"><code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
