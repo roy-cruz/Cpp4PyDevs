@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 4: Functions &amp; Memory &#8212; PURSUE C++ Tutorial</title>
+    <title>Chapter 4: Classes &#8212; PURSUE C++ Tutorial</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'c4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 5: Classes" href="c5.html" />
-    <link rel="prev" title="Chapter 3: Statements &amp; Flow Control" href="c3.html" />
+    <link rel="next" title="Chapter 5: C++ in HEP - A Short Introduction to ROOT" href="c5.html" />
+    <link rel="prev" title="Chapter 3: Functions &amp; Memory" href="c3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,11 +180,10 @@
 <li class="toctree-l1"><a class="reference internal" href="c0.html">Set-up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c1.html">Chapter 1: Compiled vs. Interpreted Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2.html">Chapter 2: From Python to C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Statements &amp; Flow Control</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Functions &amp; Memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: C++ in HEP - A Short Introduction to ROOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c7.html">Chapter 7: Advanced Topics in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Functions &amp; Memory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Advanced Topics in C++</a></li>
 </ul>
 
     </div>
@@ -239,7 +238,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/roy-cruz/PURSUE-cpp/tree/main" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -256,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fc4.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/roy-cruz/PURSUE-cpp/tree/main/issues/new?title=Issue%20on%20page%20%2Fc4.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -370,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 4: Functions & Memory</h1>
+    <h1>Chapter 4: Classes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,13 +379,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-saw-before">What We Saw Before</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-and-function-overloading">Default Arguments and Function Overloading</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-reference-vs-passing-by-value">Passing by Reference vs. Passing by Value</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
 </ul>
             </nav>
         </div>
@@ -398,170 +394,119 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-functions-memory">
-<h1>Chapter 4: Functions &amp; Memory<a class="headerlink" href="#chapter-4-functions-memory" title="Link to this heading">#</a></h1>
-<p>In this chapter, we will explore functions in C++. We will start by building on what we covered in Chapter 2 and then expand to cover concepts unique to C++. We’ll also discuss memory allocation, pointers, and the differences between passing by reference and passing by value.</p>
-<section id="what-we-saw-before">
-<h2>What We Saw Before<a class="headerlink" href="#what-we-saw-before" title="Link to this heading">#</a></h2>
-<p>In Chapter 2, we introduced the basics of functions in C++. We saw that the definition of a function has two components:</p>
-<ul class="simple">
-<li><p>Function declaration: Tells the compiler about a function’s name, return type, and parameters.</p></li>
-<li><p>Definition: Provides the actual body of the function.</p></li>
-</ul>
-<p>Example in Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Equivalent in C++:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="c1">// Function declaration</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-
-<span class="c1">// Function definition</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="default-arguments-and-function-overloading">
-<h2>Default Arguments and Function Overloading<a class="headerlink" href="#default-arguments-and-function-overloading" title="Link to this heading">#</a></h2>
-<p>In C++, just like in Python, you can have arguments in your functions which have a default value. The syntax is nearly identical. For instance, we can have the following:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="n">greet</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">greet</span><span class="p">();</span>
-<span class="w">    </span><span class="n">greet</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Additionally, we can have define multiple distinct functions with the same name. In order for C++ to distinguish them, we must use different parameters for each of these functions. Example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span><span class="w"> </span><span class="mf">4.5</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In this exmaple, C++ is able to understand which <code class="docutils literal notranslate"><span class="pre">add</span></code> function we are referring to because when we do <code class="docutils literal notranslate"><span class="pre">add(3,</span> <span class="pre">4)</span></code>, we are passing <code class="docutils literal notranslate"><span class="pre">int</span></code> values, so it corresponds to the first function definition, whereas when we do <code class="docutils literal notranslate"><span class="pre">add(3.5,</span> <span class="pre">4.5)</span></code> we are passing floats <code class="docutils literal notranslate"><span class="pre">double</span></code> typed values, corresponding to the second function definition.</p>
-</section>
-<section id="passing-by-reference-vs-passing-by-value">
-<h2>Passing by Reference vs. Passing by Value<a class="headerlink" href="#passing-by-reference-vs-passing-by-value" title="Link to this heading">#</a></h2>
-<section id="pointers">
-<h3>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h3>
-<p>Whenever you create a variable in C++, you are doing a couple of things:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-classes">
+<h1>Chapter 4: Classes<a class="headerlink" href="#chapter-4-classes" title="Link to this heading">#</a></h1>
+<p>C++ is an object oriented programming, meaning that everything is associated with some sort of class or object with attributes and methods (variables and functions that live inside the object/class). This programming paradigm is intuitive, though not the only or best one for the particular problem you’re trying to solve. However, for many problems, the abstraction provided by the use of classes can be extremely valuable.</p>
+<p>In this chapter, we will take a deeper look at classes and what differentiates them from what you have seem in Python.</p>
+<section id="what-we-ve-seen-before">
+<h2>What We’ve Seen Before<a class="headerlink" href="#what-we-ve-seen-before" title="Link to this heading">#</a></h2>
+<p>We saw that classes can have public, protected and private methods and attributes, each with a different level of accesibility. Their accesibility is re-sumarized in the following list</p>
 <ol class="arabic simple">
-<li><p>Allocating Memory:</p>
-<ul class="simple">
-<li><p>You are allocating a space in memory of the size appropriate for the type of the variable. This space in memory is reserved to store the value of the variable.</p></li>
-<li><p>For instance, creating an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable allocates 4 bytes of memory on most systems.</p></li>
-</ul>
-</li>
-<li><p>Creating a Variable:</p>
-<ul class="simple">
-<li><p>You are creating a variable that contains the value stored in the allocated memory space.</p></li>
-<li><p>Each variable has a particular memory address, which is the location in memory where the value is stored. You can access this memory address using the address-of operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. For instance, if I declare <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">4</span></code>, and I then do <code class="docutils literal notranslate"><span class="pre">&amp;x</span></code>, I will get the address in memory of <code class="docutils literal notranslate"><span class="pre">x</span></code>, which is usually represented as a hexadecimal number such as <code class="docutils literal notranslate"><span class="pre">0x16b671738</span></code>.</p></li>
-</ul>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>: Members are accessible from outside the class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code>: Members are accesible only inside the class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code>: Members are accesible inside the class and by derived class instances.</p></li>
 </ol>
-<p>A pointer is a variables that store memory addresses. They are powerful, but you need to be careful when you handle them. This is the power of C++: it trusts you with direct access to the memory. Use that that level of control carefully! Otherwise, you might end up having errors such as memory leaks and segmentation fauls.</p>
-</section>
-<section id="passing-by-value-vs-passing-by-reference">
-<h3>Passing by Value vs. Passing by Reference<a class="headerlink" href="#passing-by-value-vs-passing-by-reference" title="Link to this heading">#</a></h3>
-<p>So far, we have seen that we can pass arguments to a function and that function can perform some operations with that data. However, this “standard” way of passing values to a function is such that any change to the information you pass to the function is lost once you are outside the scope of the function unless you return this information. If you run the following code, you will see this in effect.</p>
+<p>In addition, we saw that when we instantiate a class, a method called the “contructor” is called which might initialize the object. The following example summarizes all of these things.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kt">void</span><span class="w"> </span><span class="nf">passByValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<span class="linenos"> 6</span><span class="p">}</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 9</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="linenos">10</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
-<span class="linenos">11</span><span class="w">    </span><span class="n">passByValue</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
-<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">14</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Passing a parameter to a function in this way is called passing by value because, as the name suggests, you are passing the value or contents of the variable, but not the memory address itself which would allow the function to access the data you passed to it.</p>
-<p>If we wish to provide the function access to the data in memory instead of giving it a copy of the data, we would need to pass by reference. This can be achieved by changing the header of the function to <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">passByValue(int&amp;</span> <span class="pre">val)</span></code>. <code class="docutils literal notranslate"><span class="pre">int&amp;</span></code> denotes a reference to an integer, which means that <code class="docutils literal notranslate"><span class="pre">val</span></code> will be an alias of the original variable instead of just a copy of it. The code and output would look as such:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kt">void</span><span class="w"> </span><span class="nf">passByValue</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<span class="linenos"> 6</span><span class="p">}</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 9</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="linenos">10</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
-<span class="linenos">11</span><span class="w">    </span><span class="n">passByValue</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 40</span>
-<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">14</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Another way to achieve this effect is to pass the address in memory of the variable, i.e. the pointer. The following example shows how to do this.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kt">void</span><span class="w"> </span><span class="nf">passByValue</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr_val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos"> 5</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer passed to func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="linenos"> 6</span><span class="w">    </span><span class="o">*</span><span class="n">ptr_val</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ptr_val</span><span class="p">);</span><span class="w"> </span><span class="c1">// Dereference ptr_val to modify the value it points to</span>
-<span class="linenos"> 7</span><span class="p">}</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1">// Constructor, equivalent of __init__ in Python</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">MyClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="linenos"> 8</span>
-<span class="linenos"> 9</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="linenos">10</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="linenos">11</span><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pointer to a</span>
-<span class="linenos">12</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 10</span>
-<span class="linenos">13</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Address of a in hexadecimal</span>
-<span class="linenos">14</span><span class="w">    </span><span class="n">passByValue</span><span class="p">(</span><span class="n">ptr_a</span><span class="p">);</span>
-<span class="linenos">15</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value after func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: 40</span>
-<span class="linenos">16</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Pointer after func: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr_a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Output: Same address as before</span>
-<span class="linenos">17</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="linenos">18</span><span class="p">}</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">12</span><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">};</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">17</span><span class="w">  </span><span class="n">MyClass</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="linenos">18</span><span class="w">  </span><span class="n">obj</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+<span class="linenos">19</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">20</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Through this example, we can see that the pointer printer inside of the function is the same than the one outside. However, it is worth pausing and taking a look at two new things seen here which have to do with memory and pointers:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">ptr_a</span></code>: This declares a <em>pointer to</em> an <code class="docutils literal notranslate"><span class="pre">int</span></code>. It is different than <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span></code> because this just declares the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> with type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;a</span></code>: Here we use the “pointer to” operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> which gives us the address in memory of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> int his case.
-*<code class="docutils literal notranslate"><span class="pre">*ptr_val</span></code>: Here we use the “dereference” operator which acts on a pointer (<code class="docutils literal notranslate"><span class="pre">ptr_val</span></code>) and returns the value pointed to by the pointer.</p></li>
-</ul>
-<p>With this, we have the basic building blocks neccesary for most programs. However, there is one last component that is at the core of the most popular programming paradigm, object oriented programming (OOP): classes.</p>
 </section>
+<section id="destructor">
+<h2>Destructor<a class="headerlink" href="#destructor" title="Link to this heading">#</a></h2>
+</section>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+</section>
+<section id="polymorphism">
+<h2>Polymorphism<a class="headerlink" href="#polymorphism" title="Link to this heading">#</a></h2>
+<!-- 
+## 
+
+
+
+
+## Classes
+
+Classes in both Python and C++ allow you to create user-defined data types with attributes (data members) and methods (member functions) to manipulate these attributes. In Python, we could write a class like in the following example.
+
+```{code-block} python
+---
+linenos: True
+---
+class MyClass:
+  def __init__(self, value):
+    self.value = value
+  
+  def display(self):
+    print(self.value)
+
+obj = MyClass(10)
+obj.display()
+```
+
+In C++, the same class can be written like this:
+```{code-block} cpp
+---
+linenos: True
+---
+#include <iostream>
+using namespace std;
+
+class MyClass {
+  public:
+    // Constructor, equivalent of __init__ in Python
+    MyClass(int val) : value(val) {}
+
+    void display() {
+      cout << value << endl;
+    }
+  private:
+    int value;
+};
+
+int main() {
+  MyClass obj(10);
+  obj.display();
+  return 0;
+}
+```
+
+In this example, it is evident that C++ has some additonal elements not seen in Python. Firstly, we see the access specifiers `public` and `private` which dictate how the access permissions of the member attributes and methods. Here is what they mean:
+
+1. `public`: Members are accessible from outside the class
+1. `private`: Members are accesible only inside the class.
+2. `protected`: Members are accesible inside the class and by derived class instances.
+
+Note that although you can indicate in Python that a member function/attribute is protected or private by, for instance, calling the protected attribute `_protected_var` and the privated attribute `__private_var`, these are just conventions and the language itself does not enforce this distinction. In C++, however, this distinction is enforced and thus a protected variable cannot be accessed outside the class.
+
+You might also notice the line in the class in C++: `MyClass(int val) : value(val) {}`. This is a special method called the constructor and its job is to perform initializations, similar to how `__init__` works in Python. The name of the constructor is always the same as the name of the class itself, and the syntax is as follows:
+
+```cpp
+ClassName(typevar1 var1, typevar2 var2) : classattrib1(var1), classattrib2(var2) {}
+```
+
+In the constructor, `classattrib1(var1)` is part of the initializer list, which initializes the class attributes `classattrib1` and `classattrib2` with the values passed as parameters `var1` and `var2`.
+
+There is also a "destructor", but we will not touch upon that for now. -->
 </section>
 </section>
 
@@ -601,7 +546,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 3: Statements &amp; Flow Control</p>
+        <p class="prev-next-title">Chapter 3: Functions &amp; Memory</p>
       </div>
     </a>
     <a class="right-next"
@@ -609,7 +554,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 5: Classes</p>
+        <p class="prev-next-title">Chapter 5: C++ in HEP - A Short Introduction to ROOT</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -629,13 +574,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-saw-before">What We Saw Before</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-and-function-overloading">Default Arguments and Function Overloading</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-reference-vs-passing-by-value">Passing by Reference vs. Passing by Value</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
 </ul>
   </nav></div>
 

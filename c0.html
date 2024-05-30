@@ -180,11 +180,10 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Set-up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c1.html">Chapter 1: Compiled vs. Interpreted Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2.html">Chapter 2: From Python to C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Statements &amp; Flow Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Functions &amp; Memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: C++ in HEP - A Short Introduction to ROOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c7.html">Chapter 7: Advanced Topics in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Functions &amp; Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Advanced Topics in C++</a></li>
 </ul>
 
     </div>
@@ -239,7 +238,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/roy-cruz/PURSUE-cpp/tree/main" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -256,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fc0.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/roy-cruz/PURSUE-cpp/tree/main/issues/new?title=Issue%20on%20page%20%2Fc0.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -415,7 +414,7 @@ git<span class="w"> </span>clone<span class="w"> </span>git@github.com:roy-cruz/
 </pre></div>
 </div>
 <p>To test that everything is working, compile and run <code class="docutils literal notranslate"><span class="pre">helloworld.cpp</span></code>.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">examples</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">examples_cpp</span>
 <span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="n">helloworld</span><span class="p">.</span><span class="n">cpp</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">helloworld</span>
 <span class="p">.</span><span class="o">/</span><span class="n">helloworld</span>
 </pre></div>
@@ -429,6 +428,27 @@ git<span class="w"> </span>clone<span class="w"> </span>git@github.com:roy-cruz/
 </section>
 <section id="local">
 <h2>Local<a class="headerlink" href="#local" title="Link to this heading">#</a></h2>
+<p>Your machine should already have the CPP compiler. To make sure that this is the case, run <code class="docutils literal notranslate"><span class="pre">g++</span></code>. If it complains about the command not being found, run the following to install it (assuming you are using AlmaLinux9):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>gcc-c++
+</pre></div>
+</div>
+<p>Next, clone this repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:roy-cruz/PURSUE-cpp.git
+<span class="nb">cd</span><span class="w"> </span>PURSUE-cpp
+</pre></div>
+</div>
+<p>and test that everything is working by compiling and running <code class="docutils literal notranslate"><span class="pre">helloworld.cpp</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">examples_cpp</span>
+<span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="n">helloworld</span><span class="p">.</span><span class="n">cpp</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">helloworld</span>
+<span class="p">.</span><span class="o">/</span><span class="n">helloworld</span>
+</pre></div>
+</div>
+<p>If you get the following output, you are ready to go!</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+</div>
 </section>
 </section>
 
