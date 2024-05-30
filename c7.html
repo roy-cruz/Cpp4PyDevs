@@ -381,10 +381,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structs">Structs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors">Handling Errors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-throw-catch"><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors-try-throw-catch">Handling Errors: <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -425,10 +422,8 @@ document.write(`
 <section id="structs">
 <h2>Structs<a class="headerlink" href="#structs" title="Link to this heading">#</a></h2>
 </section>
-<section id="handling-errors">
-<h2>Handling Errors<a class="headerlink" href="#handling-errors" title="Link to this heading">#</a></h2>
-<section id="try-throw-catch">
-<h3><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code><a class="headerlink" href="#try-throw-catch" title="Link to this heading">#</a></h3>
+<section id="handling-errors-try-throw-catch">
+<h2>Handling Errors: <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code><a class="headerlink" href="#handling-errors-try-throw-catch" title="Link to this heading">#</a></h2>
 <p>In Python, to handle errors you would usually use <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">except</span></code> <code class="docutils literal notranslate"><span class="pre">raise</span></code>. For instance, suppose we want to validate the user’s age to make sure that it is above 21 and, if the age is below this number, it throws an error. This could be implemented in Python as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="linenos"> 2</span><span class="n">magic_num</span> <span class="o">=</span> <span class="mi">10</span>
@@ -447,7 +442,6 @@ document.write(`
 <p>What happens here is the following:
 * Python attempts running the <code class="docutils literal notranslate"><span class="pre">try</span></code> block. Inside this block, if the user inputs a number bellow 21, Python <em>raises</em> a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, letting the user know that the age must be above 21.
 * If a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised, Python runs the <code class="docutils literal notranslate"><span class="pre">except</span></code> block. Here, the program lets the user know the amounts of</p>
-</section>
 </section>
 </section>
 
@@ -508,10 +502,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structs">Structs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors">Handling Errors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-throw-catch"><code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-errors-try-throw-catch">Handling Errors: <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">throw</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code></a></li>
 </ul>
   </nav></div>
 

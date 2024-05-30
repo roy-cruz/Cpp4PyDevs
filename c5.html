@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -357,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -373,6 +375,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,6 +397,118 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-classes">
 <h1>Chapter 5: Classes<a class="headerlink" href="#chapter-5-classes" title="Link to this heading">#</a></h1>
+<p>C++ is an object oriented programming, meaning that everything is associated with some sort of class or object with attributes and methods (variables and functions that live inside the object/class). This programming paradigm is intuitive, though not the only or best one for the particular problem you’re trying to solve. However, for many problems, the abstraction provided by the use of classes can be extremely valuable.</p>
+<p>In this chapter, we will take a deeper look at classes and what differentiates them from what you have seem in Python.</p>
+<section id="what-we-ve-seen-before">
+<h2>What We’ve Seen Before<a class="headerlink" href="#what-we-ve-seen-before" title="Link to this heading">#</a></h2>
+<p>We saw that classes can have public, protected and private methods and attributes, each with a different level of accesibility. Their accesibility is re-sumarized in the following list</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>: Members are accessible from outside the class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code>: Members are accesible only inside the class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code>: Members are accesible inside the class and by derived class instances.</p></li>
+</ol>
+<p>In addition, we saw that when we instantiate a class, a method called the “contructor” is called which might initialize the object. The following example summarizes all of these things.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1">// Constructor, equivalent of __init__ in Python</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">MyClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">display</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">10</span><span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">12</span><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">14</span><span class="p">};</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">17</span><span class="w">  </span><span class="n">MyClass</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="linenos">18</span><span class="w">  </span><span class="n">obj</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+<span class="linenos">19</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">20</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="destructor">
+<h2>Destructor<a class="headerlink" href="#destructor" title="Link to this heading">#</a></h2>
+</section>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+</section>
+<section id="polymorphism">
+<h2>Polymorphism<a class="headerlink" href="#polymorphism" title="Link to this heading">#</a></h2>
+<!-- 
+## 
+
+
+
+
+## Classes
+
+Classes in both Python and C++ allow you to create user-defined data types with attributes (data members) and methods (member functions) to manipulate these attributes. In Python, we could write a class like in the following example.
+
+```{code-block} python
+---
+linenos: True
+---
+class MyClass:
+  def __init__(self, value):
+    self.value = value
+  
+  def display(self):
+    print(self.value)
+
+obj = MyClass(10)
+obj.display()
+```
+
+In C++, the same class can be written like this:
+```{code-block} cpp
+---
+linenos: True
+---
+#include <iostream>
+using namespace std;
+
+class MyClass {
+  public:
+    // Constructor, equivalent of __init__ in Python
+    MyClass(int val) : value(val) {}
+
+    void display() {
+      cout << value << endl;
+    }
+  private:
+    int value;
+};
+
+int main() {
+  MyClass obj(10);
+  obj.display();
+  return 0;
+}
+```
+
+In this example, it is evident that C++ has some additonal elements not seen in Python. Firstly, we see the access specifiers `public` and `private` which dictate how the access permissions of the member attributes and methods. Here is what they mean:
+
+1. `public`: Members are accessible from outside the class
+1. `private`: Members are accesible only inside the class.
+2. `protected`: Members are accesible inside the class and by derived class instances.
+
+Note that although you can indicate in Python that a member function/attribute is protected or private by, for instance, calling the protected attribute `_protected_var` and the privated attribute `__private_var`, these are just conventions and the language itself does not enforce this distinction. In C++, however, this distinction is enforced and thus a protected variable cannot be accessed outside the class.
+
+You might also notice the line in the class in C++: `MyClass(int val) : value(val) {}`. This is a special method called the constructor and its job is to perform initializations, similar to how `__init__` works in Python. The name of the constructor is always the same as the name of the class itself, and the syntax is as follows:
+
+```cpp
+ClassName(typevar1 var1, typevar2 var2) : classattrib1(var1), classattrib2(var2) {}
+```
+
+In the constructor, `classattrib1(var1)` is part of the initializer list, which initializes the class attributes `classattrib1` and `classattrib2` with the values passed as parameters `var1` and `var2`.
+
+There is also a "destructor", but we will not touch upon that for now. -->
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -441,7 +566,23 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
