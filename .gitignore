@@ -1,2 +1,3 @@
 .DS_Store
 pursue-cpp-book/_build
+*.out
