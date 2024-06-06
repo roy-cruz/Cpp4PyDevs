@@ -183,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Functions &amp; Memory</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Advanced Topics in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Extra Topics in C++</a></li>
 </ul>
 
     </div>
@@ -380,9 +380,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
 </ul>
             </nav>
         </div>
@@ -394,19 +394,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-classes">
+  <section id="chapter-4-classes">
 <h1>Chapter 4: Classes<a class="headerlink" href="#chapter-4-classes" title="Link to this heading">#</a></h1>
-<p>C++ is an object oriented programming, meaning that everything is associated with some sort of class or object with attributes and methods (variables and functions that live inside the object/class). This programming paradigm is intuitive, though not the only or best one for the particular problem you’re trying to solve. However, for many problems, the abstraction provided by the use of classes can be extremely valuable.</p>
+<p>C++ is an object oriented programming language, where classes form a principal role in structuring software in a manageable, efficient, and reusable manner. This programming paradigm is intuitive and its use is widespread<a class="footnote-reference brackets" href="#classparadigm" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>In this chapter, we will take a deeper look at classes and what differentiates them from what you have seem in Python.</p>
 <section id="what-we-ve-seen-before">
 <h2>What We’ve Seen Before<a class="headerlink" href="#what-we-ve-seen-before" title="Link to this heading">#</a></h2>
-<p>We saw that classes can have public, protected and private methods and attributes, each with a different level of accesibility. Their accesibility is re-sumarized in the following list</p>
+<p>We saw that classes can have public and private methods and attributes, each with a different level of accesibility. Their accesibility is re-sumarized in the following list</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>: Members are accessible from outside the class</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">private</span></code>: Members are accesible only inside the class.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code>: Members are accesible inside the class and by derived class instances.</p></li>
 </ol>
-<p>In addition, we saw that when we instantiate a class, a method called the “contructor” is called which might initialize the object. The following example summarizes all of these things.</p>
+<p>In addition, we saw that when we instantiate a class, a method called the “contructor” is called which has the purpose of initializing the object if neccesary. The following example summarizes all of these things.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 <span class="linenos"> 3</span>
@@ -430,83 +429,179 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="destructor">
-<h2>Destructor<a class="headerlink" href="#destructor" title="Link to this heading">#</a></h2>
-</section>
 <section id="inheritance">
 <h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+<p>Inheritance is a fundamental concept in OOP. It describes the capacity for a class to acquire methods and attributes from another. The base class from which other class(es) derive from is called the parent/base class, while those classes that inherit from the parent class are called the child/derived class. This is very useful because it allows you to define a generalized base class which works for many different sitautions, and then have derived classes which inherit from the base class to work in a more specialized case. For instance, you could define a base class called <code class="docutils literal notranslate"><span class="pre">vehicle</span></code>, and then have children classes such as <code class="docutils literal notranslate"><span class="pre">car</span></code>, <code class="docutils literal notranslate"><span class="pre">bus</span></code> and <code class="docutils literal notranslate"><span class="pre">motorcycle</span></code> which inherit from <code class="docutils literal notranslate"><span class="pre">vehicle</span></code>. This key feature in OOP allows us to structure our code in a logical fashion which is easier to understand.</p>
+<p>The following example illustrates the use of inheritance between two classes in Python.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The equivalent code in C++ would be given by the following.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1">// Base class</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">Particle</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="c1">// Constructor</span>
+<span class="linenos">10</span><span class="w">    </span><span class="n">Particle</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">quirkiness</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">meanlifetime</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">11</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">mass</span><span class="p">(</span><span class="n">mass</span><span class="p">),</span><span class="w"> </span><span class="n">quirkiness</span><span class="p">(</span><span class="n">quirkiness</span><span class="p">),</span><span class="w"> </span><span class="n">meanlifetime</span><span class="p">(</span><span class="n">meanlifetime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="linenos">12</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Particle Constructor Called. Assigning mass, quirkiness, and meanlifetime...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ParticleFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function of Particle Class. Just printing!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">20</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">quirkiness</span><span class="p">;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="k">protected</span><span class="o">:</span>
+<span class="linenos">23</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">meanlifetime</span><span class="p">;</span>
+<span class="linenos">24</span><span class="p">};</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1">// Derived class</span>
+<span class="linenos">27</span><span class="k">class</span><span class="w"> </span><span class="nc">Muon</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Particle</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">28</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos">29</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">charge</span><span class="p">;</span>
+<span class="linenos">30</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">spin</span><span class="p">;</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="c1">// Constructor</span>
+<span class="linenos">33</span><span class="w">    </span><span class="n">Muon</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">charge</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">spin</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">quirkiness</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">meanlifetime</span><span class="p">)</span><span class="w"> </span>
+<span class="linenos">34</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">charge</span><span class="p">(</span><span class="n">charge</span><span class="p">),</span><span class="w"> </span><span class="n">spin</span><span class="p">(</span><span class="n">spin</span><span class="p">),</span><span class="w"> </span><span class="n">Particle</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="n">quirkiness</span><span class="p">,</span><span class="w"> </span><span class="n">meanlifetime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="linenos">35</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Muon Constructor Called. Assigning charge and spin.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="linenos">36</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">MuonFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">39</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Function of Muon Class. Just printing!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">40</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">PrintLifeTime</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">43</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mean Lifetime: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">meanlifetime</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Accessing protected member from base class</span>
+<span class="linenos">44</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">45</span><span class="p">};</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">48</span><span class="w">    </span><span class="n">Muon</span><span class="w"> </span><span class="n">mu</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1057</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="p">);</span>
+<span class="linenos">49</span><span class="w">    </span><span class="n">mu</span><span class="p">.</span><span class="n">MuonFunction</span><span class="p">();</span>
+<span class="linenos">50</span><span class="w">    </span><span class="n">mu</span><span class="p">.</span><span class="n">ParticleFunction</span><span class="p">();</span>
+<span class="linenos">51</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Charge: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mu</span><span class="p">.</span><span class="n">charge</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">52</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Spin: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mu</span><span class="p">.</span><span class="n">spin</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">53</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mass: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mu</span><span class="p">.</span><span class="n">mass</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">54</span><span class="w">    </span><span class="n">mu</span><span class="p">.</span><span class="n">PrintLifeTime</span><span class="p">();</span><span class="w"> </span><span class="c1">// Calling function to print meanlifetime</span>
+<span class="linenos">55</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">56</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Particle Constructor Called. Assigning mass, quirkiness, and meanlifetime...
+Muon Constructor Called. Assigning charge and spin.
+Function of Muon Class. Just printing!
+Function of Particle Class. Just printing!
+Charge: 1
+Spin: 0.5
+Mass: 0.1057
+Mean Lifetime: 10
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">Particle</span></code> is a parent class from which <code class="docutils literal notranslate"><span class="pre">Muon</span></code> inherits. As can be observed, in the <code class="docutils literal notranslate"><span class="pre">main</span></code> body of the code we were able to call a public method that belonged to <code class="docutils literal notranslate"><span class="pre">Particle</span></code> as if it belonged to the <code class="docutils literal notranslate"><span class="pre">Muon</span></code> class. In addition, we called the method <code class="docutils literal notranslate"><span class="pre">PrintLifeTime()</span></code> which accessed <code class="docutils literal notranslate"><span class="pre">Particle</span></code>’s protected attribute <code class="docutils literal notranslate"><span class="pre">meanlifetime</span></code>. WHen a method or attribute is <code class="docutils literal notranslate"><span class="pre">protected</span></code>, it can only be accesed in two ways: through the class itself, or through one of its derived classes that inherit from it. This means that if we had tried to do <code class="docutils literal notranslate"><span class="pre">mu.meanlifetime</span></code>, I would have gotten an error. On the other hand, the private attribute <code class="docutils literal notranslate"><span class="pre">quirkiness</span></code> can <em>only</em> be accessed in the same class it was defined, which means that <code class="docutils literal notranslate"><span class="pre">Muon</span></code> cannot access it directly. However, it is possible for <code class="docutils literal notranslate"><span class="pre">Muon</span></code> to access it indirectly by calling a protected or public method which in <code class="docutils literal notranslate"><span class="pre">Particle</span></code> which accesses <code class="docutils literal notranslate"><span class="pre">meanlifetime</span></code>.</p>
+<p>You might ask yourself: “That’s nice, but I can code in Python without having to have any private, public or protected method/attributes and it works perfectly fine. So what’s the point!” While its true that its not neccesary for a programming language to have these features, having them does offer some benefits. For instance, it allows us to control access to certain critical methods or attributes, thus enhancing the security of our code. Additionally, it can help with controlling what exactly is inherited to a derived class and with having a stable API for users despite changes to the parent class definition itself.</p>
 </section>
 <section id="polymorphism">
 <h2>Polymorphism<a class="headerlink" href="#polymorphism" title="Link to this heading">#</a></h2>
-<!-- 
-## 
+<p>Polymorphism allows methods to do different things based on the object is is acting on. The main idea is that you want to be able to use a function with different types of inputs without having to define a function for every possible type of input. Polymorphism is achieved primarily through the use of virtual function and abstract classes.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
+<span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Some animal sound!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
 
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">speak</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Woof!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
 
+<span class="kt">void</span><span class="w"> </span><span class="nf">makeAnimalSpeak</span><span class="p">(</span><span class="n">Animal</span><span class="o">&amp;</span><span class="w"> </span><span class="n">animal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">animal</span><span class="p">.</span><span class="n">speak</span><span class="p">();</span>
+<span class="p">}</span>
 
-## Classes
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Animal</span><span class="w"> </span><span class="n">animal</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Dog</span><span class="w"> </span><span class="n">dog</span><span class="p">;</span>
 
-Classes in both Python and C++ allow you to create user-defined data types with attributes (data members) and methods (member functions) to manipulate these attributes. In Python, we could write a class like in the following example.
-
-```{code-block} python
----
-linenos: True
----
-class MyClass:
-  def __init__(self, value):
-    self.value = value
-  
-  def display(self):
-    print(self.value)
-
-obj = MyClass(10)
-obj.display()
-```
-
-In C++, the same class can be written like this:
-```{code-block} cpp
----
-linenos: True
----
-#include <iostream>
-using namespace std;
-
-class MyClass {
-  public:
-    // Constructor, equivalent of __init__ in Python
-    MyClass(int val) : value(val) {}
-
-    void display() {
-      cout << value << endl;
-    }
-  private:
-    int value;
-};
-
-int main() {
-  MyClass obj(10);
-  obj.display();
-  return 0;
-}
-```
-
-In this example, it is evident that C++ has some additonal elements not seen in Python. Firstly, we see the access specifiers `public` and `private` which dictate how the access permissions of the member attributes and methods. Here is what they mean:
-
-1. `public`: Members are accessible from outside the class
-1. `private`: Members are accesible only inside the class.
-2. `protected`: Members are accesible inside the class and by derived class instances.
-
-Note that although you can indicate in Python that a member function/attribute is protected or private by, for instance, calling the protected attribute `_protected_var` and the privated attribute `__private_var`, these are just conventions and the language itself does not enforce this distinction. In C++, however, this distinction is enforced and thus a protected variable cannot be accessed outside the class.
-
-You might also notice the line in the class in C++: `MyClass(int val) : value(val) {}`. This is a special method called the constructor and its job is to perform initializations, similar to how `__init__` works in Python. The name of the constructor is always the same as the name of the class itself, and the syntax is as follows:
-
-```cpp
-ClassName(typevar1 var1, typevar2 var2) : classattrib1(var1), classattrib2(var2) {}
-```
-
-In the constructor, `classattrib1(var1)` is part of the initializer list, which initializes the class attributes `classattrib1` and `classattrib2` with the values passed as parameters `var1` and `var2`.
-
-There is also a "destructor", but we will not touch upon that for now. -->
+<span class="w">    </span><span class="n">makeAnimalSpeak</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// Outputs: Some animal sound!</span>
+<span class="w">    </span><span class="n">makeAnimalSpeak</span><span class="p">(</span><span class="n">dog</span><span class="p">);</span><span class="w"> </span><span class="c1">// Outputs: Woof!, thanks to polymorphism</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="destructor">
+<h2>Destructor<a class="headerlink" href="#destructor" title="Link to this heading">#</a></h2>
+<p>A destructor is another special function that is automatically called when an object goes out of scope or is deleted. Its purpose is to free sources allocated during the object’s lifetime, such as memory and file. These type of class method exists in Python, but it is not as essential as in C++ because Python has a garbage collector that takes care of these things in the background automatically<a class="footnote-reference brackets" href="#pydestruc" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>If we forget to include a destructor, one is created for us by default. This is mostly okay, but if your class handles pointers, we should write a destructor ourselves. Not doing this could lead to memory leaks.</p>
+<p>Here is a quick example of a destructor in use.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">DynamicArray</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="k">public</span><span class="o">:</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1">// Constructor</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">DynamicArray</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_size</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="n">m_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">m_size</span><span class="p">];</span><span class="w">  </span><span class="c1">// Allocate memory for the array</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Array of size &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; created.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="c1">// Initialize the array for the sake of completeness</span>
+<span class="linenos">11</span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_size</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">            </span><span class="n">m_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">  </span><span class="c1">// Storing square of the index</span>
+<span class="linenos">13</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">14</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">    </span><span class="c1">// Destructor</span>
+<span class="linenos">17</span><span class="w">    </span><span class="o">~</span><span class="n">DynamicArray</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">        </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">m_array</span><span class="p">;</span><span class="w">  </span><span class="c1">// Release the allocated memory</span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Array of size &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; destroyed.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">    </span><span class="c1">// A function to print the array elements</span>
+<span class="linenos">23</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">printArray</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m_size</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Element at index &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">27</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="k">private</span><span class="o">:</span>
+<span class="linenos">30</span><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">m_array</span><span class="p">;</span><span class="w">  </span><span class="c1">// Pointer to the dynamically allocated array</span>
+<span class="linenos">31</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_size</span><span class="p">;</span><span class="w">    </span><span class="c1">// Size of the array</span>
+<span class="linenos">32</span><span class="p">};</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">DynamicArray</span><span class="w"> </span><span class="n">arr</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// Create an object of DynamicArray</span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">arr</span><span class="p">.</span><span class="n">printArray</span><span class="p">();</span><span class="w">     </span><span class="c1">// Print the array elements</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="c1">// When the function exits, arr goes out of scope, and its destructor is automatically called</span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">40</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If you’re ever asking yourself whether you need to explicitly define a destructor for your class, ask yourself this: “Does my class manage any resources, such as dynamically allocated memory, file handles, or network connections?” If it does, you should explicitly define a destructor. This is because built-in data types and standard library classes like <code class="docutils literal notranslate"><span class="pre">std::string</span></code> or <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> have destructors that automatically manage their resources. However, if your class directly manages resources like pointers, these resources will not be automatically released when the object goes out of scope, which can lead to memory leaks and resource leaks. Therefore, defining a destructor allows you to ensure proper cleanup of these resources.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="classparadigm" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Keep in mind that it is not the only one and that it might not even be the best one for the particular problem you are trying to solve. However, for many problems, the abstraction provided by the use of classes can be extremely valuable.</p>
+</aside>
+<aside class="footnote brackets" id="pydestruc" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>If you need it, Python allows you to define a destructor method in your class which is called when all references to it have been deleted. In Python, this method is called <code class="docutils literal notranslate"><span class="pre">__del__()</span></code>.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -575,9 +670,9 @@ There is also a "destructor", but we will not touch upon that for now. -->
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-ve-seen-before">What We’ve Seen Before</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#destructor">Destructor</a></li>
 </ul>
   </nav></div>
 

@@ -183,7 +183,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Functions &amp; Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Advanced Topics in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Extra Topics in C++</a></li>
 </ul>
 
     </div>
@@ -381,7 +381,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-saw-before">What We Saw Before</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-and-function-overloading">Default Arguments and Function Overloading</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-reference-vs-passing-by-value">Passing by Reference vs. Passing by Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ways-of-passing-to-a-function">Ways of Passing to a Function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</a></li>
 </ul>
@@ -397,7 +397,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-functions-memory">
+  <section id="chapter-3-functions-memory">
 <h1>Chapter 3: Functions &amp; Memory<a class="headerlink" href="#chapter-3-functions-memory" title="Link to this heading">#</a></h1>
 <p>In this chapter, we will explore functions in C++. We will start by building on what we covered in Chapter 2 and then expand to cover concepts unique to C++. We’ll also discuss memory allocation, pointers, and the differences between passing by reference and passing by value.</p>
 <section id="what-we-saw-before">
@@ -434,6 +434,10 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
+<div class="admonition-exercise-3-1 admonition">
+<p class="admonition-title">Exercise 3.1</p>
+<p>To review your understanding, make a function which implements powers.</p>
+</div>
 </section>
 <section id="default-arguments-and-function-overloading">
 <h2>Default Arguments and Function Overloading<a class="headerlink" href="#default-arguments-and-function-overloading" title="Link to this heading">#</a></h2>
@@ -453,7 +457,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Additionally, we can have define multiple distinct functions with the same name. In order for C++ to distinguish them, we must use different parameters for each of these functions. Example:</p>
+<p>Additionally, we can have define multiple distinct functions with the same name. In order for C++ to distinguish them, we must use different parameters for each of these functions. This is called function overloading and it is a form of polymorphism (more on that in later chapters). Here is an example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
@@ -472,10 +476,14 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this exmaple, C++ is able to understand which <code class="docutils literal notranslate"><span class="pre">add</span></code> function we are referring to because when we do <code class="docutils literal notranslate"><span class="pre">add(3,</span> <span class="pre">4)</span></code>, we are passing <code class="docutils literal notranslate"><span class="pre">int</span></code> values, so it corresponds to the first function definition, whereas when we do <code class="docutils literal notranslate"><span class="pre">add(3.5,</span> <span class="pre">4.5)</span></code> we are passing floats <code class="docutils literal notranslate"><span class="pre">double</span></code> typed values, corresponding to the second function definition.</p>
+<p>In this exmaple, C++ is able to understand which <code class="docutils literal notranslate"><span class="pre">add</span></code> function we are referring to because when we do <code class="docutils literal notranslate"><span class="pre">add(3,</span> <span class="pre">4)</span></code>, we are passing <code class="docutils literal notranslate"><span class="pre">int</span></code> values, so it corresponds to the first function definition, whereas when we do <code class="docutils literal notranslate"><span class="pre">add(3.5,</span> <span class="pre">4.5)</span></code> we are passing <code class="docutils literal notranslate"><span class="pre">double</span></code> typed values, corresponding to the second function definition.</p>
+<div class="admonition-exercise-3-2 admonition">
+<p class="admonition-title">Exercise 3.2</p>
+<p>Make two print functions. One of them should take in a <code class="docutils literal notranslate"><span class="pre">string</span></code> as an argument, the other one should take in an <code class="docutils literal notranslate"><span class="pre">int</span></code> value as an argument. If no value is passed to these function, they should print <code class="docutils literal notranslate"><span class="pre">&quot;Nothing</span> <span class="pre">to</span> <span class="pre">print...&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> respectively. You can have it <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">0;</span></code>.</p>
+</div>
 </section>
-<section id="passing-by-reference-vs-passing-by-value">
-<h2>Passing by Reference vs. Passing by Value<a class="headerlink" href="#passing-by-reference-vs-passing-by-value" title="Link to this heading">#</a></h2>
+<section id="ways-of-passing-to-a-function">
+<h2>Ways of Passing to a Function<a class="headerlink" href="#ways-of-passing-to-a-function" title="Link to this heading">#</a></h2>
 <section id="pointers">
 <h3>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h3>
 <p>Whenever you create a variable in C++, you are doing a couple of things:</p>
@@ -553,12 +561,16 @@ document.write(`
 <span class="linenos">18</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Through this example, we can see that the pointer printer inside of the function is the same than the one outside. However, it is worth pausing and taking a look at two new things seen here which have to do with memory and pointers:</p>
+<p>Through this example, we can see that the pointer printed inside of the function is the same than the one outside. However, it is worth pausing and taking a look at two new things seen here which have to do with memory and pointers:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">ptr_a</span></code>: This declares a <em>pointer to</em> an <code class="docutils literal notranslate"><span class="pre">int</span></code>. It is different than <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span></code> because this just declares the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> with type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;a</span></code>: Here we use the “pointer to” operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> which gives us the address in memory of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> int his case.
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;a</span></code>: Here we use the “pointer to” operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> which gives us the address in memory of the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> in this case.
 *<code class="docutils literal notranslate"><span class="pre">*ptr_val</span></code>: Here we use the “dereference” operator which acts on a pointer (<code class="docutils literal notranslate"><span class="pre">ptr_val</span></code>) and returns the value pointed to by the pointer.</p></li>
 </ul>
+<div class="admonition-exercise-3-3 admonition">
+<p class="admonition-title">Exercise 3.3</p>
+<p>Make another add function which sums two integers. It should take in integer values <em>by reference</em> and add them. Don’t put a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement at the end of the function and change the return type of the function accordingly (what would the return value be if the function doesn’t return anything? 🤔)</p>
+</div>
 <p>With this, we have the basic building blocks neccesary for most programs. However, there is one last component that is at the core of the most popular programming paradigm, object oriented programming (OOP): classes.</p>
 </section>
 </section>
@@ -630,7 +642,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-we-saw-before">What We Saw Before</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-arguments-and-function-overloading">Default Arguments and Function Overloading</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-reference-vs-passing-by-value">Passing by Reference vs. Passing by Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ways-of-passing-to-a-function">Ways of Passing to a Function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers">Pointers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</a></li>
 </ul>

@@ -183,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Functions &amp; Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Advanced Topics in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c6.html">Chapter 6: Extra Topics in C++</a></li>
 </ul>
 
     </div>
@@ -391,6 +391,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while"><code class="docutils literal notranslate"><span class="pre">do-while</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch"><code class="docutils literal notranslate"><span class="pre">switch</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
@@ -406,12 +407,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-from-python-to-c">
+  <section id="chapter-2-from-python-to-c">
 <h1>Chapter 2: From Python to C++<a class="headerlink" href="#chapter-2-from-python-to-c" title="Link to this heading">#</a></h1>
-<p>In this chapter, we will be introducing the fundamental things you will need to get strated coding in C++ by seeing how basic elements from Python such as variables, flow control and functions look like in C++. At the end, we will look at a some more complex examples comparing C++ and Python and you will work on an exercise applying all of this in order to write your first program in C++. Keep in mind that the difference between Python and C++ are not just syntax. While the same program written in C++ and in Python might technically work the same, they will operate differently under the hood.</p>
+<p>In this chapter, we will be introducing the fundamental things you will need to get strated coding in C++ by seeing how basic elements from Python such as variables, flow control and functions look like in C++. At the end, we will look at a some more complex examples comparing C++ and Python. Keep in mind that the differences between Python and C++ are not just syntax. While the same program written in C++ and in Python might technically work the same, they will operate differently under the hood.</p>
 <section id="first-things-first">
 <h2>First Things First…<a class="headerlink" href="#first-things-first" title="Link to this heading">#</a></h2>
-<p>Before we can jump into programming in C++, we need to do some neccesary housekeeping by explaning some basic considerations neccesary to get anywhere with C++. Consider the following, very simple code in Python.</p>
+<p>Before we can jump into programming in C++, we need to cover some fundamental points neccesary for actually running any C++ code. Consider the following, very simple code in Python.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="linenos">2</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="linenos">3</span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -448,15 +449,14 @@ document.write(`
 </li>
 <li><p>Line 4</p>
 <ul class="simple">
-<li><p>This line is a function header for a function called <code class="docutils literal notranslate"><span class="pre">main</span></code> which is we indicate will return a value of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. This function is fundamental because <strong>every C++ program starts by running the <code class="docutils literal notranslate"><span class="pre">main</span></code> function</strong>.</p></li>
+<li><p>This line is a function header for a function called <code class="docutils literal notranslate"><span class="pre">main</span></code> which we indicate will return a value of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. This function is fundamental because <strong>every C++ program starts by running the <code class="docutils literal notranslate"><span class="pre">main</span></code> function</strong>.</p></li>
 <li><p>Unlike in Python where we indicate that a set of statements are part of a function by indenting them with respect to the function header, in C++ we indicate this by having these statements enclosed by <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
 </ul>
 </li>
 <li><p>Lines 5 to 10</p>
-<ul class="simple">
+<ul>
 <li><p>These lines define the body of the function <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
-<li><p>Notice that each statement ends in <code class="docutils literal notranslate"><span class="pre">;</span></code>. This tells the compiler that that is the end of that particular statement. This is neccesary to add because, unlike Python, C++ is a <em>whitespace-independent language</em> which means that the following two snippets of code are completely equivalent to the compiler and thus, without <code class="docutils literal notranslate"><span class="pre">;</span></code>, there would be no way for the compiler to know that it had reached the end of a statement.</p></li>
-</ul>
+<li><p>Notice that each statement ends in <code class="docutils literal notranslate"><span class="pre">;</span></code>. This tells the compiler that that is the end of that particular statement. This is neccesary to add because, unlike Python, C++ is a <strong>whitespace-independent language</strong> which means that the following two snippets of code are completely equivalent to the compiler and thus, without <code class="docutils literal notranslate"><span class="pre">;</span></code>, there would be no way for the compiler to know that it had reached the end of a statement.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
@@ -467,6 +467,8 @@ document.write(`
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;}</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </li>
 </ul>
 <p>We will discuss the rest of the elements seen in the code snipper as we go along, but take some time to try to deduce what each part is doing.</p>
@@ -490,7 +492,7 @@ document.write(`
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.45</span><span class="p">;</span><span class="w"> </span><span class="c1">// Not an integer!</span>
 </pre></div>
 </div>
-<p>Note that, just like in Python has some reserved keyword which you would not want to name your variables (e.g. <code class="docutils literal notranslate"><span class="pre">print</span></code> is a terrible name for a variable!), C++ also has a set of reserved names. For instance, if you try to call a variable <code class="docutils literal notranslate"><span class="pre">return</span></code>, the compiler will complain. You can ready more about these reserved keywords <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword">here</a>. In addition to these restrictions, C++ has other rules for what variable names are valid. In order for an identifier to be valid, it must obey the following conditions:</p>
+<p>Note that, just like in Python has some reserved keywords which you would not want to name your variables (e.g. <code class="docutils literal notranslate"><span class="pre">print</span></code> is a terrible name for a variable!), C++ also has a set of reserved names. For instance, if you try to call a variable <code class="docutils literal notranslate"><span class="pre">return</span></code>, the compiler will complain. You can ready more about these reserved keywords <a class="reference external" href="https://en.cppreference.com/w/cpp/keyword">here</a>. In addition to these restrictions, C++ has other rules for what variable names are valid. In order for an identifier to be valid, it must obey the following conditions:</p>
 <ul class="simple">
 <li><p>It must be a sequence of one or more letters, digits, or underscore</p></li>
 <li><p>It must NOT include spaces, punctuation marks &amp; symbols</p></li>
@@ -498,8 +500,8 @@ document.write(`
 <li><p>It must NOT be one of the reserved keywords in C++</p></li>
 </ul>
 <p>The following table shows some of the data types found in C++ which you might find most familiar having some knowledge of Python. Note that there are more data types than these which we will see later, but these will at least get you started.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Some Fundamental Types in C++</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Some Fundamental Types in C++</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Keyword</p></th>
@@ -558,12 +560,12 @@ document.write(`
 <span class="linenos">8</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Here, we are defining an array <code class="docutils literal notranslate"><span class="pre">arr_of_num</span></code> which we tell the computer will have elements of size <code class="docutils literal notranslate"><span class="pre">int</span></code>. In additional, we are initializing the array with some integers. Note that when we assign <code class="docutils literal notranslate"><span class="pre">arr_of_nums[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code>, what happens is that the value is <em>copied</em> and assigned to x.</p>
+<p>Here, we are defining an array <code class="docutils literal notranslate"><span class="pre">arr_of_num</span></code> which we tell the computer will have elements of size <code class="docutils literal notranslate"><span class="pre">int</span></code> (usually 4 bytes). In additional, we are initializing the array with some integers. Note that when we assign <code class="docutils literal notranslate"><span class="pre">arr_of_nums[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code>, what happens is that the value is <em>copied</em> and assigned to x.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Unlike in Python, in C++ it is possible to use an out of bounds index when fetching an element from an array. This is because when you do <code class="docutils literal notranslate"><span class="pre">int_arr[n]</span></code> all your computer is doing is finding the space space in memory <code class="docutils literal notranslate"><span class="pre">sizeof(int)</span> <span class="pre">*</span> <span class="pre">n</span></code> away from <code class="docutils literal notranslate"><span class="pre">int_arr[0]</span></code>, which can go beyond the actual space alloted for the array. To see this in action, run the following code. Your compile might complain, but if it does indeed compile, you see that what is printed to the console is junk because we are accessing some random piece of memory. Don’t do this in practice! You could break something!</p>
+<p>Unlike in Python, in C++ it is possible to use an out of bounds index when fetching an element from an array. This is because when you do <code class="docutils literal notranslate"><span class="pre">int_arr[n]</span></code> all your computer is doing is finding the space space in memory <code class="docutils literal notranslate"><span class="pre">sizeof(int)</span> <span class="pre">*</span> <span class="pre">n</span></code> away from <code class="docutils literal notranslate"><span class="pre">int_arr[0]</span></code>, which can go beyond the actual space alloted for the array. To see this in action, run the following code. Your compiler might complain, but if it does indeed compile, you see that what is printed to the console is junk because we are accessing some random piece of memory. Do this at your own risk and, in practice, try to never do it! You could break something or cause your program to behave unexpectedly.</p>
 </div>
-<p>One limitation with arrays is that the size of the array is unchangeable. However, C++ offers an alternative called vectors which are dynamic arrays that can change in size, making them the Python equivalent of lists. So, for example, in Python we might have something like the following</p>
+<p>One limitation with arrays is that the size of the array is unchangeable<a class="footnote-reference brackets" href="#arrsize" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. However, C++ offers an alternative called vectors which are dynamic arrays that can change in size, making them the Python equivalent of lists. So, for example, in Python we might have something like the following</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lst_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
 <span class="n">lst_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># Adding an element to the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added element&quot;</span><span class="p">,</span> <span class="n">lst_nums</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -591,8 +593,8 @@ document.write(`
 <section id="statements-control-flow">
 <h2>Statements &amp; Control Flow<a class="headerlink" href="#statements-control-flow" title="Link to this heading">#</a></h2>
 <p>In Python, we have the well known flow control statements <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements, <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, etc. All of these are used to allow us to repeat operations in our code or to allow it to branch depending on some pre-defined conditions. C++ also has its own control flow statements, many of which will be familiar to you. To get started, in the table below, we present a summary of the main control flow statements in C++. In the subsequent sub-sections, we will cover the most basic and useful of these by starting with a Python example at first, and then seeing the equivalent in C++.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Flow Control Statements in C++</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Flow Control Statements in C++</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -758,6 +760,63 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="switch">
+<h3><code class="docutils literal notranslate"><span class="pre">switch</span></code><a class="headerlink" href="#switch" title="Link to this heading">#</a></h3>
+<p>If you have a fixed set of possible ramifications that you want your code to go down, the you would use <code class="docutils literal notranslate"><span class="pre">switch</span></code>. They are equivalent to a set of <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> statements in Python, but they are not directly implemented. For instance, in Python, we might have the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span><span class="s2">What is your favortie color (input the number):</span>
+<span class="linenos"> 3</span><span class="s2">      1. Red</span>
+<span class="linenos"> 4</span><span class="s2">      2. Blue</span>
+<span class="linenos"> 5</span><span class="s2">      3. Green</span>
+<span class="linenos"> 6</span><span class="s2">      4. Yellow</span>
+<span class="linenos"> 7</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">12</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must like apples!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">14</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must like looking at the sky!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">15</span><span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must like vegetables!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">17</span><span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+<span class="linenos">18</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must like looking at the Sun! (And you should probably stop...)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">20</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;ve never heard of that color...:(</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In C++, we could implement this rather easily with <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements, but it can be done more straightforwardly using <code class="docutils literal notranslate"><span class="pre">switch</span></code>. The following snippet is the C++ translation of this.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="linenos"> 3</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;What is your favorite color (input the number):</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;1. Red </span><span class="se">\n</span><span class="s">2. Blue</span><span class="se">\n</span><span class="s">3. Green</span><span class="se">\n</span><span class="s">4. Yellow</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">){</span>
+<span class="linenos">12</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos">13</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You must like apples!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="linenos">16</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You must like looking at the sky!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">17</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
+<span class="linenos">19</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You must like vegetables!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
+<span class="linenos">22</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;You must like looking at the Sun! (And you should probably stop...)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="linenos">25</span><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I&#39;ve never heard of that color... :(</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">28</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
@@ -826,15 +885,20 @@ document.write(`
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>: Members are accessible from outside the class</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">private</span></code>: Members are accesible only inside the class.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code>: Members are accesible inside the class and by derived class instances.</p></li>
 </ol>
-<p>Note that although you can indicate in Python that a member function/attribute is protected or private by, for instance, calling the protected attribute <code class="docutils literal notranslate"><span class="pre">_protected_var</span></code> and the privated attribute <code class="docutils literal notranslate"><span class="pre">__private_var</span></code>, these are just conventions and the language itself does not enforce this distinction. In C++, however, this distinction is enforced and thus a protected variable cannot be accessed outside the class.</p>
+<p>Note that although you can indicate in Python that a member function/attribute is public or private by, for instance, including underscore characters at the beggining of the variable name (e.g <code class="docutils literal notranslate"><span class="pre">_private_var</span></code>) and not including these characters for a public attribute (e.g.<code class="docutils literal notranslate"><span class="pre">public_var</span></code>), these are just conventions and the language itself does not enforce this distinction. In C++, however, this distinction is enforced and thus a protected variable cannot be accessed outside the class.</p>
 <p>You might also notice the line in the class in C++: <code class="docutils literal notranslate"><span class="pre">MyClass(int</span> <span class="pre">val)</span> <span class="pre">:</span> <span class="pre">value(val)</span> <span class="pre">{}</span></code>. This is a special method called the constructor and its job is to perform initializations, similar to how <code class="docutils literal notranslate"><span class="pre">__init__</span></code> works in Python. The name of the constructor is always the same as the name of the class itself, and the syntax is as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ClassName</span><span class="p">(</span><span class="n">typevar1</span><span class="w"> </span><span class="n">var1</span><span class="p">,</span><span class="w"> </span><span class="n">typevar2</span><span class="w"> </span><span class="n">var2</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">classattrib1</span><span class="p">(</span><span class="n">var1</span><span class="p">),</span><span class="w"> </span><span class="n">classattrib2</span><span class="p">(</span><span class="n">var2</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </pre></div>
 </div>
 <p>In the constructor, <code class="docutils literal notranslate"><span class="pre">classattrib1(var1)</span></code> is part of the initializer list, which initializes the class attributes <code class="docutils literal notranslate"><span class="pre">classattrib1</span></code> and <code class="docutils literal notranslate"><span class="pre">classattrib2</span></code> with the values passed as parameters <code class="docutils literal notranslate"><span class="pre">var1</span></code> and <code class="docutils literal notranslate"><span class="pre">var2</span></code>.</p>
-<p>There is also a “destructor”, but we will not touch upon that for now.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="arrsize" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>If you are familiar with how NumPy implements arrays, you might realize that C++ arrays have a fixed size for tha same reason that NumPy arrays have a fixed size.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -914,6 +978,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while"><code class="docutils literal notranslate"><span class="pre">do-while</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue"><code class="docutils literal notranslate"><span class="pre">break</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch"><code class="docutils literal notranslate"><span class="pre">switch</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
