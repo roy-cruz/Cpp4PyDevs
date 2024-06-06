@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -182,7 +182,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2: From Python to C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c3.html">Chapter 3: Functions &amp; Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c4.html">Chapter 4: Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: C++ in HEP - A Short Introduction to ROOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c5.html">Chapter 5: An Example of C++ in HEP</a></li>
 </ul>
 
     </div>
@@ -455,7 +455,7 @@ document.write(`
 <li><p>Lines 5 to 10</p>
 <ul>
 <li><p>These lines define the body of the function <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
-<li><p>Notice that each statement ends in <code class="docutils literal notranslate"><span class="pre">;</span></code>. This tells the compiler that that is the end of that particular statement. This is neccesary to add because, unlike Python, C++ is a <strong>whitespace-independent language</strong> which means that the following two snippets of code are completely equivalent to the compiler and thus, without <code class="docutils literal notranslate"><span class="pre">;</span></code>, there would be no way for the compiler to know that it had reached the end of a statement.</p>
+<li><p>Notice that each statement ends in <code class="docutils literal notranslate"><span class="pre">;</span></code>. This tells the compiler that that is the end of that particular statement. This is neccesary to add because, unlike Python, C++ is a <strong>whitespace-independent language</strong> which means that the following two snippets of code are completely equivalent to the compiler and thus, without <code class="docutils literal notranslate"><span class="pre">;</span></code>, there would be no way for the compiler to know that it had reached the end of a statement<a class="footnote-reference brackets" href="#hard2read" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
@@ -499,8 +499,8 @@ document.write(`
 <li><p>It must NOT be one of the reserved keywords in C++</p></li>
 </ul>
 <p>The following table shows some of the data types found in C++ which you might find most familiar having some knowledge of Python. Note that there are more data types than these which we will see later, but these will at least get you started.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Some Fundamental Types in C++</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Some Fundamental Types in C++</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Keyword</p></th>
@@ -564,7 +564,7 @@ document.write(`
 <p class="admonition-title">Warning</p>
 <p>Unlike in Python, in C++ it is possible to use an out of bounds index when fetching an element from an array. This is because when you do <code class="docutils literal notranslate"><span class="pre">int_arr[n]</span></code> all your computer is doing is finding the space space in memory <code class="docutils literal notranslate"><span class="pre">sizeof(int)</span> <span class="pre">*</span> <span class="pre">n</span></code> away from <code class="docutils literal notranslate"><span class="pre">int_arr[0]</span></code>, which can go beyond the actual space alloted for the array. To see this in action, run the following code. Your compiler might complain, but if it does indeed compile, you see that what is printed to the console is junk because we are accessing some random piece of memory. Do this at your own risk and, in practice, try to never do it! You could break something or cause your program to behave unexpectedly.</p>
 </div>
-<p>One limitation with arrays is that the size of the array is unchangeable<a class="footnote-reference brackets" href="#arrsize" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. However, C++ offers an alternative called vectors which are dynamic arrays that can change in size, making them the Python equivalent of lists. So, for example, in Python we might have something like the following</p>
+<p>One limitation with arrays is that the size of the array is unchangeable<a class="footnote-reference brackets" href="#arrsize" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. However, C++ offers an alternative called vectors which are dynamic arrays that can change in size, making them the Python equivalent of lists. So, for example, in Python we might have something like the following</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lst_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
 <span class="n">lst_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="c1"># Adding an element to the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added element&quot;</span><span class="p">,</span> <span class="n">lst_nums</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -592,8 +592,8 @@ document.write(`
 <section id="statements-control-flow">
 <h2>Statements &amp; Control Flow<a class="headerlink" href="#statements-control-flow" title="Link to this heading">#</a></h2>
 <p>In Python, we have the well known flow control statements <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements, <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, etc. All of these are used to allow us to repeat operations in our code or to allow it to branch depending on some pre-defined conditions. C++ also has its own control flow statements, many of which will be familiar to you. To get started, in the table below, we present a summary of the main control flow statements in C++. In the subsequent sub-sections, we will cover the most basic and useful of these by starting with a Python example at first, and then seeing the equivalent in C++.</p>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Flow Control Statements in C++</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Flow Control Statements in C++</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -893,8 +893,12 @@ document.write(`
 <p>In the constructor, <code class="docutils literal notranslate"><span class="pre">classattrib1(var1)</span></code> is part of the initializer list, which initializes the class attributes <code class="docutils literal notranslate"><span class="pre">classattrib1</span></code> and <code class="docutils literal notranslate"><span class="pre">classattrib2</span></code> with the values passed as parameters <code class="docutils literal notranslate"><span class="pre">var1</span></code> and <code class="docutils literal notranslate"><span class="pre">var2</span></code>.</p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="arrsize" role="doc-footnote">
+<aside class="footnote brackets" id="hard2read" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>There are actual <a class="reference external" href="https://en.wikipedia.org/wiki/International_Obfuscated_C_Code_Contest">competitions</a> where people take advantage of this and they compete to see who can make the hardest code to read in the most creative way.</p>
+</aside>
+<aside class="footnote brackets" id="arrsize" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>If you are familiar with how NumPy implements arrays, you might realize that C++ arrays have a fixed size for tha same reason that NumPy arrays have a fixed size.</p>
 </aside>
 </aside>
